@@ -1,0 +1,254 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Новостройки Пхукета — каталог «Этажи» · Александр Косарев</title>
+<meta name="description" content="Актуальные квартиры и виллы на Пхукете от 2,39 млн ฿: цены в батах и рублях, презентации проектов, гид покупателя. Александр Косарев, агентство «Этажи».">
+<meta property="og:title" content="Новостройки Пхукета от 2,39 млн ฿ — каталог «Этажи»">
+<meta property="og:description" content="Квартиры и виллы на Пхукете: цены, презентации, гид покупателя. Александр Косарев, «Этажи».">
+<meta property="og:image" content="https://etagiphuket.github.io/img/og.jpg">
+<meta property="og:type" content="website"><meta property="og:url" content="https://etagiphuket.github.io/">
+<style>*,*:before,*:after{box-sizing:border-box}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap">
+<style>
+/* Layout: a price ladder. Tiers from cheapest entry to most expensive; a vertical rail ties them; projects numbered 01→12 in price order */
+:root{
+  --bg:#F3F3F1; --surface:#FFFFFF; --fg:#16171A; --muted:#686B73; --line:#E0E0DC;
+  --accent:#E3262B; --accent-soft:#FBE8E8; --ok:#1F7A4D; --ok-soft:#E3F3EA;
+  --font:"Onest",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#131417; --surface:#1C1E22; --fg:#ECECEE; --muted:#9A9DA6; --line:#2B2E33;
+  --accent:#F0484C; --accent-soft:#3A1D1F; --ok:#5CC98F; --ok-soft:#173226; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#131417; --surface:#1C1E22; --fg:#ECECEE; --muted:#9A9DA6; --line:#2B2E33;
+  --accent:#F0484C; --accent-soft:#3A1D1F; --ok:#5CC98F; --ok-soft:#173226; color-scheme:dark }
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--font);font-size:15px;line-height:1.45}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* hero */
+.hero{padding-block:32px 22px;display:flex;flex-direction:column;gap:12px}
+.brand{align-self:flex-start;background:var(--accent);color:#fff;font-weight:700;font-size:12px;letter-spacing:.08em;padding:6px 12px;border-radius:999px}
+h1{font-weight:800;font-size:clamp(30px,5.4vw,52px);line-height:1.03;margin:0;letter-spacing:-.01em;text-wrap:balance;max-width:16ch}
+h1 em{font-style:normal;color:var(--accent)}
+.lead{color:var(--muted);margin:0;max-width:58ch;font-size:16px}
+.stats{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:6px;font-variant-numeric:tabular-nums}
+.stats div{display:flex;flex-direction:column}
+.stats b{font-size:20px;font-weight:700}
+.stats small{font-size:12px;color:var(--muted)}
+
+/* tier nav */
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;gap:8px;overflow-x:auto;padding-block:10px;scrollbar-width:none}
+nav a{flex:none;text-decoration:none;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:14px;font-weight:500;white-space:nowrap;font-variant-numeric:tabular-nums}
+nav a:hover{border-color:var(--accent)}
+nav a span{color:var(--muted);margin-left:6px}
+
+/* ladder */
+.ladder{position:relative;padding-block:8px 24px}
+.tier{position:relative;padding-left:34px;padding-top:30px;scroll-margin-top:70px}
+.tier::before{content:"";position:absolute;left:9px;top:0;bottom:0;width:2px;background:var(--line)}
+.tier:first-child::before{top:44px}
+.tier:last-child::before{bottom:auto;height:44px}
+.dot{position:absolute;left:0;top:34px;width:20px;height:20px;border-radius:50%;background:var(--bg);border:2px solid var(--accent);display:grid;place-items:center}
+.dot::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.tier-head{display:flex;flex-direction:column;gap:4px;margin-bottom:16px}
+.tier-step{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.tier-head h2{margin:0;font-size:clamp(22px,3.4vw,30px);font-weight:800;line-height:1.1;font-variant-numeric:tabular-nums}
+.tier-head h2 .rub{color:var(--muted);font-weight:500;font-size:.6em;margin-left:8px;white-space:nowrap}
+.tier-head p{margin:0;color:var(--muted);max-width:62ch}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px}
+.card{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;color:inherit;text-decoration:none;transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease}
+.card:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:0 10px 24px -14px rgba(0,0,0,.35)}
+.card:focus-visible,nav a:focus-visible,.contact a:focus-visible,.copy:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.cover{position:relative;aspect-ratio:16/9;max-width:100%;background:var(--line) center/cover no-repeat}
+.num{position:absolute;left:10px;top:10px;background:rgba(0,0,0,.62);color:#fff;font-weight:700;font-size:13px;padding:4px 9px;border-radius:8px;font-variant-numeric:tabular-nums;backdrop-filter:blur(4px)}
+.badges{position:absolute;right:10px;top:10px;display:flex;gap:6px}
+.badge{font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:4px 8px;border-radius:6px;background:var(--accent);color:#fff}
+.badge.ok{background:var(--ok)}
+.info{display:flex;flex-direction:column;gap:8px;padding:14px 16px 16px;flex:1}
+.name{font-weight:700;font-size:18px;line-height:1.2}
+.place{color:var(--muted);font-size:13px;margin-top:-4px}
+.pitch{margin:0;font-size:14px;min-height:2.9em}
+.facts{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:10px;border-top:1px solid var(--line);padding-top:10px;margin-top:auto;font-variant-numeric:tabular-nums}
+.facts div{display:flex;flex-direction:column;min-width:0}
+.facts small{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.facts b{font-size:15px;line-height:1.25}
+.facts .r{font-size:12px;color:var(--muted)}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:12px;color:var(--muted)}
+.foot .go{color:var(--accent);font-weight:600;font-size:13px;white-space:nowrap}
+
+/* contact */
+.guide{scroll-margin-top:70px;margin-top:24px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;text-decoration:none;color:inherit;transition:border-color .15s ease}
+.guide:hover{border-color:var(--accent)}
+.guide:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.guide .gc{aspect-ratio:16/9;max-width:100%;background:var(--line) center/cover no-repeat}
+.guide .gb{padding:20px 22px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.guide .ge{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.guide h2{margin:0;font-size:24px;font-weight:800;line-height:1.15}
+.guide p{margin:0;color:var(--muted)}
+.guide ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px;font-size:14px}
+.guide .go{margin-top:auto;color:var(--accent);font-weight:600;font-size:14px}
+@media (max-width:700px){.guide{grid-template-columns:1fr}}
+.contact{margin-block:28px 48px;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px;display:grid;grid-template-columns:auto 1fr;gap:18px 22px;align-items:center}
+.contact img{width:96px;height:96px;border-radius:16px;object-fit:cover}
+.contact h3{margin:0 0 4px;font-size:22px;font-weight:800}
+.contact p{margin:0;color:var(--muted)}
+.links{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:10px}
+.links a,.copy{font:inherit;font-size:14px;font-weight:600;text-decoration:none;border-radius:10px;padding:10px 16px;border:1px solid var(--line);color:var(--fg);background:var(--bg);cursor:pointer}
+.links a.main{background:var(--accent);border-color:var(--accent);color:#fff}
+.note{font-size:12px;color:var(--muted);padding-bottom:28px}
+@media (max-width:520px){.contact{grid-template-columns:1fr}.facts{grid-template-columns:1fr 1fr}.facts .beach{display:none}}
+
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card{transition:none}.card:hover{transform:none}}
+</style>
+
+<header class="wrap hero">
+  <span class="brand">ЭТАЖИ · ПХУКЕТ</span>
+  <h1>Новостройки Пхукета <em>от 2,39 млн ฿</em></h1>
+  <p class="lead">Проекты выстроены по цене входа: от самых доступных к премиальным. Нажмите на проект, чтобы открыть его презентацию.</p>
+  <div class="stats" id="stats"></div>
+</header>
+
+<nav aria-label="Ценовые уровни"><div class="wrap" id="nav"></div></nav>
+
+<section class="wrap"><a class="guide" id="gid" href="p/Thailand_Guide.html">
+  <div class="gc" style="background-image:url('img/Thailand_Guide-01.jpg')" role="img" aria-label="Обложка гида покупателя"></div>
+  <div class="gb">
+    <span class="ge">Начните с этого · гид покупателя</span>
+    <h2>Таиланд и Пхукет: что нужно знать</h2>
+    <p>Коротко и простым языком о покупке недвижимости иностранцем.</p>
+    <ul><li>Как здесь жить: климат, визы, медицина, школы, районы</li><li>Что можно купить: Freehold и Leasehold, налоги, порядок сделки</li><li>Выгодно ли: доходность аренды и рост цен</li></ul>
+    <span class="go">Открыть гид →</span>
+  </div></a></section>
+<main class="wrap ladder" id="ladder"></main>
+
+<section class="wrap">
+  <div class="contact">
+    <img src="img/agent.jpg" alt="Александр Косарев">
+    <div>
+      <h3>Александр Косарев</h3>
+      <p>Эксперт по недвижимости Пхукета · агентство «Этажи». Подберу вариант под ваш бюджет, пришлю свежий прайс и расчёт аренды.</p>
+    </div>
+    <div class="links">
+      <a class="main" href="https://wa.me/66811403589" target="_blank" rel="noopener">WhatsApp · +66 81 140 3589</a>
+      <a href="https://t.me/OOOKOSAREV" target="_blank" rel="noopener">Telegram · @OOOKOSAREV</a>
+      <button class="copy" id="copy-mail" type="button">a.s.kosarev@mail.etagi.com</button>
+    </div>
+  </div>
+  <p class="note">Цены по прайсам и открытым данным застройщиков на октябрь 2026, актуальное наличие — по запросу. Курс: 1 ฿ ≈ 2,6 ₽.</p>
+</section>
+
+<script>
+const RATE = 2.6;
+const TIERS = [
+  { id:"do-3-5", step:"Ступень 1 · старт", title:"до 3,5 млн ฿", rub:"≈ до 9 млн ₽",
+    text:"Самый доступный вход: готовая квартира с ремонтом и новостройки рядом с Лагуной и Банг Тао.",
+    p:[
+      { n:"The Cube Amaze", d:"Си Сунтон · Таланг", p:2.39, k:"Готов", b:"9 км", dev:"Soken Development Group", f:"The_Cube_Amaze_Srisoonthon",
+        pitch:"Готовый дом с бассейном: ремонт, мебель, техника. Ключи сразу после сделки.", badge:["Готов","ok"] },
+      { n:"The Title Sierra", d:"Чернгталай · Лагуна", p:3.15, k:"3 кв. 2028", b:"2,2 км", dev:"AssetWise × The Title", f:"The_Title_Sierra_Cherngtalay",
+        pitch:"Жизнь у Лагуны по цене спальных районов. Porto de Phuket в 650 метрах." },
+      { n:"VIP TropiKa", d:"Банг Тао", p:3.35, k:"1 кв. 2029", b:"400 м", dev:"VIP Property Development", f:"VIP_TropiKa_Bangtao",
+        pitch:"Курорт с лагуной-бассейном. Цена «Этажей» на 25–29% ниже прайса.", badge:["Цена Этажей"] }
+    ]},
+  { id:"3-5-5", step:"Ступень 2", title:"3,5 – 5 млн ฿", rub:"≈ 9–13 млн ₽",
+    text:"Новостройки с мебелью на севере и западе острова: тихие пляжи, отельный сервис, семейная инфраструктура.",
+    p:[
+      { n:"The Olive", d:"Най Янг", p:4.10, k:"уточняется", b:"450 м", dev:"AssetWise × The Title", f:"The_Olive_Nai_Yang",
+        pitch:"Тихий пляж в нацпарке, аэропорт в 5 минутах. Один из самых доступных метров." },
+      { n:"The Title Vivana", d:"Камала", p:4.12, k:"2 кв. 2029", b:"1,4 км", dev:"AssetWise × The Title", f:"The_Title_Vivana_Kamala",
+        pitch:"Средиземноморский курорт в тихой бухте: бассейны-гроты и ленивая река." },
+      { n:"The Ozone Signature", d:"Банг Тао · Лагуна", p:4.16, k:"2027", b:"2 км", dev:"The Ozone Group × Wyndham", f:"Ozone_Signature_Bang_Tao",
+        pitch:"Под управлением Wyndham. Метр по цене «Этажей» на 13% ниже рынка.", badge:["Цена Этажей"] },
+      { n:"The Gens by Botanica", d:"Черн Талай", p:4.27, k:"4 кв. 2028", b:"3 км", dev:"Botanica × Sure Estate", f:"The_Gens_by_Botanica",
+        pitch:"Дом для всей семьи: онсэн, детский клуб. Школа HeadStart в 500 метрах." }
+    ]},
+  { id:"5-7", step:"Ступень 3", title:"5 – 7 млн ฿", rub:"≈ 13–18 млн ₽",
+    text:"Комплексы в нескольких минутах от моря: Ката, Карон, Най Янг и Сурин.",
+    p:[
+      { n:"Fizz", d:"Ката", p:5.13, k:"4 кв. 2029", b:"≈ 1 км", dev:"AssetWise × The Title", f:"The_Title_Fizz_Kata",
+        pitch:"Яркий бутик-дом на 135 квартир с клубом для жильцов. Цена котлована." },
+      { n:"The Kuartz", d:"Карон", p:5.28, k:"2029", b:"500 м", dev:"AssetWise × The Title", f:"The_Kuartz_Karon",
+        pitch:"Курорт для семьи: кинозал, инфинити-бассейн на крыше, детские зоны." },
+      { n:"The Balcony", d:"Най Янг", p:5.74, k:"дек. 2027", b:"100 м", dev:"AssetWise × The Title", f:"The_Balcony_Nai_Yang",
+        pitch:"Сто метров до пляжа и ключи уже через год. Продано 83% квартир.", badge:["Почти продан"] },
+      { n:"Biancana", d:"Сурин", p:6.13, k:"март 2028", b:"200 м", dev:"AssetWise × The Title", f:"Biancana_Surin",
+        pitch:"Малоэтажный курорт на первой линии Сурина, «пхукетской Ривьеры»." }
+    ]},
+  { id:"villy", step:"Ступень 4 · премиум", title:"Виллы 15–30 млн ฿", rub:"≈ 41–75 млн ₽",
+    text:"Собственный дом с бассейном и садом: камерные посёлки на севере и юге острова и посёлки рядом с британской школой. Виллы Botanica строятся под покупателя: стройка стартует после вашей брони, платежи идут по этапам.",
+    p:[
+      { n:"The Verdant by Botanica", d:"Таланг · Пру Джампа", p:15.9, k:"под заказ", b:"12 мин", dev:"Botanica", f:"The_Verdant_by_Botanica",
+        pitch:"Камерный посёлок из 7 вилл: 3 спальни, свой бассейн, гараж на 2 машины.", badge:["Акция"] },
+      { n:"Botanica Skyport", d:"Май Кхао · у аэропорта", p:19.9, k:"под заказ", b:"7 мин", dev:"Botanica", f:"Botanica_Skyport",
+        pitch:"Всего 5 вилл в балийском стиле: 3 спальни, бассейн, аэропорт в 5 минутах.", badge:["Акция"] },
+      { n:"Casa de Monte", d:"Ко Кео", p:28.3, k:"3 кв. 2029", b:null, dev:"AssetWise × The Title · Boat Pattana", f:"Casa_de_Monte_Ko_Kaeo",
+        pitch:"Посёлок из 37 тосканских вилл с бассейнами. British International School в 500 метрах." },
+      { n:"Grand Sea Through", d:"Раваи · Чалонг", p:28.8, k:"под заказ", b:"4,2 км", dev:"Botanica", f:"Grand_Sea_Through",
+        pitch:"Всего 4 виллы на частной улице: 4 спальни, бассейн, вид на горы и море.", badge:["Акция"] },
+      { n:"Botanica Majestia", d:"Ко Кео", p:28.8, k:"под заказ", b:null, s:"рядом", dev:"Botanica", f:"Botanica_Majestia",
+        pitch:"39 одноэтажных вилл на 3–5 спален с бассейном. Свободно 35, продано всего 4.", badge:["Акция"] }
+    ]},
+  { id:"ultralux", step:"Ступень 5 · ультралюкс", title:"Виллы от 100 млн ฿", rub:"≈ от 260 млн ₽",
+    text:"Закрытые коллекции вилл с видом на море: единичные дома, которые почти не появляются в продаже.",
+    p:[
+      { n:"Kamala Ocean Valley", d:"Камала · вид на море", p:126.1, k:"под заказ", b:"5 мин", dev:"Botanica", f:"Kamala_Ocean_Valley",
+        pitch:"Всего 6 вилл с 4 спальнями, бассейном 12 м и видом на залив Камала.", badge:["Ультралюкс"] }
+    ]}
+];
+const fmt = x => x.toLocaleString("ru-RU",{minimumFractionDigits:x<10?2:1,maximumFractionDigits:2});
+const rub = x => (Math.round(x*RATE*10)/10).toLocaleString("ru-RU",{maximumFractionDigits:1});
+const all = TIERS.flatMap(t=>t.p);
+const word = n => n%10===1&&n%100!==11?"проект":[2,3,4].includes(n%10)&&![12,13,14].includes(n%100)?"проекта":"проектов";
+
+document.getElementById("stats").innerHTML = `
+  <div><b>${all.length}</b><small>${word(all.length)}</small></div>
+  <div><b>${new Set(all.map(p=>p.dev.split(" · ")[0].split(" × ")[0])).size}</b><small>застройщиков</small></div>
+  <div><b>${fmt(all[0].p)} – ${fmt(all[all.length-1].p)} млн ฿</b><small>цена входа</small></div>`;
+
+document.getElementById("nav").innerHTML = `<a href="#gid">Гид покупателя</a>` + TIERS.map(t=>`<a href="#${t.id}">${t.title}<span>${t.p.length}</span></a>`).join("");
+
+let i = 0;
+document.getElementById("ladder").innerHTML = TIERS.map(t => `
+  <section class="tier" id="${t.id}">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="tier-head">
+      <span class="tier-step">${t.step}</span>
+      <h2>${t.title}<span class="rub">${t.rub}</span></h2>
+      <p>${t.text}</p>
+    </div>
+    <div class="grid">${t.p.map(p => { i++; return `
+      <a class="card" href="p/${p.f}.html">
+        <div class="cover" style="background-image:url('img/${p.f}-01.jpg')" role="img" aria-label="Обложка презентации ${p.n}">
+          <span class="num">${String(i).padStart(2,"0")}</span>
+          ${p.badge?`<span class="badges"><span class="badge ${p.badge[1]||""}">${p.badge[0]}</span></span>`:""}
+        </div>
+        <div class="info">
+          <span class="name">${p.n}</span>
+          <span class="place">${p.d}</span>
+          <p class="pitch">${p.pitch}</p>
+          <div class="facts">
+            <div><small>Вход от</small><b>${fmt(p.p)} млн ฿</b><span class="r">≈ ${rub(p.p)} млн ₽</span></div>
+            <div><small>Ключи</small><b>${p.k}</b></div>
+            <div class="beach"><small>${p.b?"До пляжа":"Школа"}</small><b>${p.b||p.s||"500 м"}</b></div>
+          </div>
+          <div class="foot"><span>${p.dev}</span><span class="go">Презентация →</span></div>
+        </div>
+      </a>`;}).join("")}
+    </div>
+  </section>`).join("");
+
+const mail = document.getElementById("copy-mail");
+mail.addEventListener("click", () => {
+  const t = "a.s.kosarev@mail.etagi.com";
+  const done = () => { mail.textContent = "Почта скопирована"; setTimeout(()=>mail.textContent=t,1800); };
+  try { navigator.clipboard.writeText(t).then(done).catch(()=>{ getSelection().selectAllChildren(mail); }); }
+  catch(e){ getSelection().selectAllChildren(mail); }
+});
+
+</script>
+</body></html>
