@@ -108,6 +108,8 @@ select{font:inherit;font-weight:600;border:1px solid var(--ln);background:var(--
 <div class="w">
   <a class="guide" href="p/Thailand_Guide.html" id="gid"><div class="gc" style="background-image:url('img/Thailand_Guide-01.jpg')"></div>
     <div class="gb"><small>Начните с этого · гид покупателя</small><b>Таиланд и Пхукет: что нужно знать</b><span>Визы, Freehold и Leasehold, налоги, порядок сделки и доходность — простым языком.</span></div></a>
+  <a class="guide" href="p/Invest.html" id="inv" style="margin-top:12px"><div class="gc" style="background-image:url('img/Invest-01.jpg')"></div>
+    <div class="gb"><small>Для инвестора · доход от аренды</small><b>Сколько приносит квартира на Пхукете</b><span>Калькулятор дохода, гарантия 5–7%, rental pool и сравнение с Паттайей, Бангкоком и Сочи.</span></div></a>
   <main id="res"></main>
   <section class="contact" id="contact">
     <img src="img/agent.jpg" alt="Александр Косарев">
@@ -295,7 +297,7 @@ function render(){
   R.innerHTML=`<div class="rhead"><h2>Найдено: ${r.length} ${word(r.length)}<small>${esc(summary())}${fr.length?" · от "+money(Math.min(...fr)):""}</small></h2><select id="sort" aria-label="Сортировка">${SORTS.map(s=>`<option value="${s[0]}" ${st.sort==s[0]?"selected":""}>${s[1]}</option>`).join("")}</select></div>`+
   (r.length?`<div class="grid">${r.map(card).join("")}</div>`:`<div class="empty"><b>По этим условиям в каталоге ничего нет</b><p>Напишите мне — подберу вне каталога или подскажу, что изменить.</p><a class="btn m" style="display:inline-flex" href="${waLink()}" target="_blank" rel="noopener">Написать в WhatsApp</a></div>`);
   const so=document.getElementById("sort");so&&so.addEventListener("change",e=>{st.sort=e.target.value;sync()})}
- document.getElementById("gid").hidden=!!anyF();chipsAll();dock();
+ document.getElementById("gid").hidden=!!anyF();document.getElementById("inv").hidden=!!anyF();chipsAll();dock();
 }
 const word=n=>n%10==1&&n%100!=11?"проект":[2,3,4].includes(n%10)&&![12,13,14].includes(n%100)?"проекта":"проектов";
 function chipRow(id,opts,key,multi){const el=document.getElementById(id);if(!el)return;el.innerHTML=opts.map(o=>{const on=multi?st[key].includes(o[0]):st[key]==o[0];return `<button class="chip" type="button" data-k="${key}" data-v="${o[0]}" data-m="${multi?1:0}" aria-pressed="${on}">${o[1]}</button>`}).join("")}
