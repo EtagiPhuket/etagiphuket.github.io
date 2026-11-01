@@ -172,6 +172,8 @@ const TIERS = [
         pitch:"Яркий бутик-дом на 135 квартир с клубом для жильцов. Цена котлована." },
       { n:"The Kuartz", d:"Карон", p:5.28, k:"1 кв. 2029", b:"500 м", dev:"AssetWise × The Title", f:"The_Kuartz_Karon",
         pitch:"Курорт для семьи: кинозал, инфинити-бассейн на крыше, детские зоны." },
+      { n:"Radisson Resort Layan (LAYA)", d:"Лаян · 350 м до пляжа", p:5.7088, k:"дек. 2026", b:"350 м", dev:"JWP · Radisson", f:"Laya_Radisson_Layan",
+        pitch:"Курорт Radisson в 350 м от пляжа Лаян. Цена «Этажей» на 26–31% ниже прайса.", badge:["Цена Этажей"] },
       { n:"The Balcony", d:"Най Янг", p:5.74, k:"дек. 2027", b:"100 м", dev:"AssetWise × The Title", f:"The_Balcony_Nai_Yang",
         pitch:"Сто метров до пляжа и ключи уже через год. Продано 83% квартир.", badge:["Почти продан"] },
       { n:"Above Element Condo", d:"Банг Тао", p:5.74, k:"1 кв. 2026", b:"10 мин", dev:"Art House Group", f:"AH_Above_Element_Condo",
@@ -234,6 +236,7 @@ const META = {
   AH_Proud_Residence:{a:"karon",t:"apt",u:[[1,35,35,5.0],[2,60.5,60.5,18.049]]},
   The_Title_Fizz_Kata:{a:"karon",t:"apt",u:[[1,31,52,5.13],[2,58,64,8.5],[3,105,129,16.0]]},
   The_Kuartz_Karon:{a:"karon",t:"apt",u:[[1,32,48,5.28],[2,57,63,9.76]]},
+  Laya_Radisson_Layan:{a:"bangtao",t:"apt",u:[[1,35.68,36.49,5.709]]},
   The_Balcony_Nai_Yang:{a:"north",t:"apt",u:[[1,33,50,5.742],[2,50,63,8.786]]},
   AH_Above_Element_Condo:{a:"bangtao",t:"apt",u:[[1,38,47,5.74],[3,138,138,19.712]]},
   Biancana_Surin:{a:"kamala",t:"apt",u:[[1,31,62,6.131],[2,62,100,12.494],[3,131,131,27.609]]},
@@ -251,7 +254,7 @@ const META = {
 };
 
 const RUB=2.6, USD=33, WA="66811403589";
-const AREAS={bangtao:"Банг Тао · Лагуна",karon:"Карон · Ката",kamala:"Камала · Сурин",north:"Север · Най Янг · Таланг",south:"Юг · Раваи · Ко Кео"};
+const AREAS={bangtao:"Банг Тао · Лагуна · Лаян",karon:"Карон · Ката",kamala:"Камала · Сурин",north:"Север · Най Янг · Таланг",south:"Юг · Раваи · Ко Кео"};
 const BEDS=[["0","Студия"],["1","1 спальня"],["2","2 спальни"],["3","3 спальни"],["4","4+ спальни"]];
 const MAXS=[["5","до 5 млн ฿"],["10","до 10 млн ฿"],["20","до 20 млн ฿"],["50","до 50 млн ฿"]];
 const TYPES=[["apt","Квартира"],["villa","Вилла · таунхаус"]];
