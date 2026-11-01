@@ -27,7 +27,7 @@ td.p{background:var(--oks)}th.p{color:var(--ok)!important}
 .calc{background:var(--s);border:1px solid var(--ln);border-radius:18px;padding:16px}
 .calc label{display:block;font-size:13px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:.05em;margin:4px 0 6px}
 .calc input[type=range]{width:100%;accent-color:var(--ac)}.pv{font-size:24px;font-weight:800}
-.seg{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:6px}.seg button{font:inherit;font-size:13px;font-weight:700;border:1px solid var(--ln);background:var(--bg);color:var(--fg);border-radius:11px;padding:10px 6px;cursor:pointer;line-height:1.25}.seg button[aria-pressed=true]{background:var(--ac);border-color:var(--ac);color:#fff}
+.seg{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin-top:6px}.seg button{font:inherit;font-size:13px;font-weight:700;border:1px solid var(--ln);background:var(--bg);color:var(--fg);border-radius:11px;padding:10px 6px;cursor:pointer;line-height:1.25}.seg button[aria-pressed=true]{background:var(--ac);border-color:var(--ac);color:#fff}
 .out{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}.out div{background:var(--bg);border-radius:12px;padding:11px}.out b{display:block;font-size:20px}.out span{font-size:12px;color:var(--mu)}.out .big{grid-column:1/-1;background:var(--oks)}.out .big b{font-size:26px;color:var(--ok)}
 .steps{counter-reset:s;display:grid;gap:8px}.steps div{background:var(--s);border:1px solid var(--ln);border-radius:12px;padding:12px 14px 12px 50px;position:relative}.steps div:before{counter-increment:s;content:counter(s);position:absolute;left:13px;top:12px;width:26px;height:26px;border-radius:50%;background:var(--ac);color:#fff;font-weight:800;font-size:14px;display:grid;place-items:center}.steps b{display:block}.steps span{font-size:14px;color:var(--mu)}
 .btn{display:block;text-align:center;text-decoration:none;font-weight:700;padding:14px;border-radius:13px;border:1px solid var(--ln);background:var(--s);color:var(--fg);margin-top:10px}.btn.m{background:var(--ac);border-color:var(--ac);color:#fff}
@@ -38,7 +38,7 @@ footer{padding:26px 0 10px;font-size:12px;color:var(--mu)}footer a{color:var(--m
 <div class="bar"><div class="w"><a class="back" href="../">← Все проекты</a><b>Доход от аренды на Пхукете</b></div></div>
 <header class="cover"><div class="w"><small>Гид инвестора · «Этажи» Пхукет</small><h1>Квартира на Пхукете, которая зарабатывает</h1>
 <p>Большинство наших покупателей берут недвижимость не для жизни, а для дохода. Разбираем простыми словами: сколько это приносит, почему Пхукет, а не Паттайя или Сочи, и как получать доход, даже не прилетая.</p>
-<div class="toc"><a href="#calc">Калькулятор</a><a href="#ways">3 способа сдавать</a><a href="#pool">Гарантированный доход</a><a href="#cmp">Сравнение</a><a href="#pattaya">Пхукет vs Паттайя</a><a href="#tax">Налоги</a><a href="#etagi">Цена «Этажей»</a></div></div></header>
+<div class="toc"><a href="#calc">Калькулятор</a><a href="#ways">3 способа сдавать</a><a href="#ways">УК 80/20</a><a href="#pool">Гарантированный доход</a><a href="#cmp">Сравнение</a><a href="#pattaya">Пхукет vs Паттайя</a><a href="#tax">Налоги</a><a href="#etagi">Цена «Этажей»</a></div></div></header>
 <main class="w">
 
 <section class="sec"><p class="eb">Коротко</p><h2>Главное в цифрах</h2>
@@ -55,9 +55,9 @@ footer{padding:26px 0 10px;font-size:12px;color:var(--mu)}footer a{color:var(--m
 <div class="calc">
 <label for="pr">Цена квартиры</label><div class="pv" id="pv"></div><input type="range" id="pr" min="2.4" max="20" step="0.1" value="5">
 <label style="margin-top:14px">Как сдавать</label>
-<div class="seg" id="mode"><button type="button" data-y="6" aria-pressed="true">Гарантия<br>6%</button><button type="button" data-y="8">Rental pool<br>≈ 8%</button><button type="button" data-y="10">Сам посуточно<br>≈ 10%*</button></div>
+<div class="seg" id="mode"><button type="button" data-y="6" aria-pressed="true">Гарантия<br>6%</button><button type="button" data-y="8">Rental pool<br>≈ 8%</button><button type="button" data-y="8.01">УК «Этажей» 80/20<br>≈ 8% на руки</button><button type="button" data-y="10">Сам посуточно<br>≈ 10%*</button></div>
 <div class="out"><div class="big"><b id="om"></b><span>в месяц, в среднем</span></div><div><b id="oy"></b><span>в год</span></div><div><b id="o5"></b><span>за 5 лет</span></div></div>
-<p class="fine">* «Сам посуточно» — валовый ориентир до комиссий площадок, уборки и простоя; на руки обычно на 2–3 п. п. меньше. Курс 1 ฿ ≈ 2,6 ₽.</p>
+<p class="fine">УК «Этажей»: ориентир 10% валового дохода, из которых 80% — вам. * «Сам посуточно» — валовый ориентир до комиссий площадок, уборки и простоя; на руки обычно на 2–3 п. п. меньше. Курс 1 ฿ ≈ 2,6 ₽.</p>
 </div>
 <a class="btn m" id="wa1" href="#" target="_blank" rel="noopener">Получить точный расчёт по квартире</a></section>
 
@@ -65,8 +65,18 @@ footer{padding:26px 0 10px;font-size:12px;color:var(--mu)}footer a{color:var(--m
 <div class="cards">
 <div class="c ok"><b>1. Гарантированный доход — «купил и забыл»</b><span>Застройщик или отельный оператор платит фиксированный процент от цены квартиры: обычно 5–7% в год на 3–5 лет. Деньги приходят, даже если квартира стояла пустой. Плюс 15–30 дней в году можно жить самому бесплатно.</span></div>
 <div class="c"><b>2. Rental pool — доля в отеле</b><span>Квартиры всех владельцев сдаются как один отель, выручка делится: обычно 60–70% владельцу, остальное — управляющей компании. Доход выше гарантии в хороший год и ниже в слабый. Никаких забот с гостями.</span></div>
-<div class="c"><b>3. Сдавать самому или через нашу управляющую компанию</b><span>Посуточно через Airbnb и Booking или помесячно. Максимальный потенциал — до 10–11% валовых в хороших локациях, но нужен управляющий: заселение, уборка, ремонт. Это берёт на себя управляющая компания «Этажей».</span></div>
-</div></section>
+<div class="c hl"><b>3. Через управляющую компанию «Этажей» — 80% дохода вам</b><span>Сдаём посуточно и помесячно через Airbnb, Booking и свою базу. Вы получаете 80% дохода, мы берём 20% — у большинства управляющих компаний и отельных пулов владельцу остаётся 60–70%. И главное: от нас можно отказаться в любой момент.</span></div>
+</div>
+<h3>УК «Этажей» и обычная управляющая компания</h3>
+<div class="tw"><table>
+<tr><th></th><th class="p">УК «Этажей»</th><th>Типичная УК или отельный пул</th></tr>
+<tr><td>Доля владельца</td><td class="p">80%</td><td>60–70%</td></tr>
+<tr><td>Договор</td><td class="p">можно отказаться в любой момент</td><td>на 1–3 года, выйти раньше нельзя или со штрафом</td></tr>
+<tr><td>Если захотите продать или жить сами</td><td class="p">сообщаете — и квартира ваша</td><td>ждёте окончания договора</td></tr>
+<tr><td>Связь</td><td class="p">свой менеджер на Пхукете, на русском</td><td>чаще англоязычная поддержка</td></tr>
+</table></div>
+<p class="fine">Если квартира в отельном пуле с гарантией, условия задаёт договор застройщика. Тогда УК «Этажей» подключается после окончания гарантии — если захотите больше дохода и свободы.</p>
+</section>
 
 <section class="sec" id="pool"><p class="eb">Rental pool и гарантия</p><h2>Как работает гарантированный доход</h2>
 <p class="t">Курортные кондоминиумы на Пхукете часто строят сразу как отели: с лобби, рецепцией и управлением от гостиничного оператора. Поэтому застройщик может пообещать доход — он сам будет сдавать номера. Для российского рынка это редкость: там квартиру обычно сдаёт сам владелец.</p>
@@ -155,7 +165,7 @@ footer{padding:26px 0 10px;font-size:12px;color:var(--mu)}footer a{color:var(--m
 <div class="cards">
 <div class="c"><b>Встреча в аэропорту без очередей</b><span>Зелёный коридор и fast track: проводим через паспортный контроль за руку. Так — при каждом прилёте, не только на сделку.</span></div>
 <div class="c"><b>Показы на нашем транспорте</b><span>Возим по объектам и районам, показываем шоу-румы и готовые комплексы.</span></div>
-<div class="c"><b>Своя управляющая компания</b><span>Сдаём, заселяем, убираем, решаем вопросы с жильцами и присылаем отчёт.</span></div>
+<div class="c"><b>Своя управляющая компания · 80/20</b><span>Сдаём, заселяем, убираем, решаем вопросы с жильцами и присылаем отчёт. Вам 80% дохода, без долгосрочной привязки.</span></div>
 <div class="c"><b>Проверка и сопровождение сделки</b><span>Документы, договор, платежи по графику, переоформление — до ключей.</span></div>
 <div class="c"><b>Релокация</b><span>Помогаем с визой, банком, школой, арендой на время стройки и бытом. Мы сами живём на Пхукете и на связи всегда.</span></div>
 </div></section>
@@ -169,8 +179,8 @@ footer{padding:26px 0 10px;font-size:12px;color:var(--mu)}footer a{color:var(--m
 <script>
 const R=2.6,el=id=>document.getElementById(id);let y=6;
 const f=(x)=>Math.round(x).toLocaleString("ru-RU");
-function wa(){const p=+el("pr").value;return "https://wa.me/66811403589?text="+encodeURIComponent(`Здравствуйте, Александр! Посмотрел гид по доходности на сайте. Бюджет около ${p.toLocaleString("ru-RU")} млн ฿ (≈ ${f(p*R*10)/10} млн ₽), интересует ${y==6?"гарантированный доход":y==8?"rental pool":"сдача посуточно"}. Подберите, пожалуйста, варианты и расчёт.`)}
-function calc(){const p=+el("pr").value,yr=p*1e6*y/100;el("pv").textContent=p.toLocaleString("ru-RU",{maximumFractionDigits:1})+" млн ฿ · ≈ "+(p*R).toLocaleString("ru-RU",{maximumFractionDigits:1})+" млн ₽";
+function wa(){const p=+el("pr").value;return "https://wa.me/66811403589?text="+encodeURIComponent(`Здравствуйте, Александр! Посмотрел гид по доходности на сайте. Бюджет около ${p.toLocaleString("ru-RU")} млн ฿ (≈ ${f(p*R*10)/10} млн ₽), интересует ${y==6?"гарантированный доход":y==8?"rental pool":y==8.01?"сдача через УК Этажей 80/20":"сдача посуточно"}. Подберите, пожалуйста, варианты и расчёт.`)}
+function calc(){const p=+el("pr").value,yr=p*1e6*Math.round(y)/100;el("pv").textContent=p.toLocaleString("ru-RU",{maximumFractionDigits:1})+" млн ฿ · ≈ "+(p*R).toLocaleString("ru-RU",{maximumFractionDigits:1})+" млн ₽";
 el("om").textContent="≈ "+f(yr/12*R)+" ₽ · "+f(yr/12)+" ฿";el("oy").textContent=f(yr*R/1000)+" тыс. ₽";el("o5").textContent=(yr*5*R/1e6).toLocaleString("ru-RU",{maximumFractionDigits:1})+" млн ₽";
 ["wa1","wa2","wa3"].forEach(i=>el(i).href=wa())}
 el("pr").addEventListener("input",calc);
