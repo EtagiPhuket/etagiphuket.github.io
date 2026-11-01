@@ -1,149 +1,139 @@
 <!doctype html><html lang="ru"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Новостройки Пхукета — каталог «Этажи» · Александр Косарев</title>
-<meta name="description" content="Актуальные квартиры и виллы на Пхукете от 2,39 млн ฿: цены в батах и рублях, презентации проектов, гид покупателя. Александр Косарев, агентство «Этажи».">
+<meta name="description" content="Квартиры и виллы на Пхукете от 2,39 млн ฿: фильтр по спальням, бюджету и району, цены в батах, рублях и долларах, презентации проектов. Александр Косарев, «Этажи».">
 <meta property="og:title" content="Новостройки Пхукета от 2,39 млн ฿ — каталог «Этажи»">
-<meta property="og:description" content="Квартиры и виллы на Пхукете: цены, презентации, гид покупателя. Александр Косарев, «Этажи».">
+<meta property="og:description" content="Подберите квартиру или виллу на Пхукете по спальням, бюджету и району. Цены, презентации, гид покупателя.">
 <meta property="og:image" content="https://etagiphuket.github.io/img/og.jpg">
 <meta property="og:type" content="website"><meta property="og:url" content="https://etagiphuket.github.io/">
-<style>*,*:before,*:after{box-sizing:border-box}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
-
-
+<meta name="theme-color" content="#E3262B">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap">
 <style>
-/* Layout: a price ladder. Tiers from cheapest entry to most expensive; a vertical rail ties them; projects numbered 01→12 in price order */
-:root{
-  --bg:#F3F3F1; --surface:#FFFFFF; --fg:#16171A; --muted:#686B73; --line:#E0E0DC;
-  --accent:#E3262B; --accent-soft:#FBE8E8; --ok:#1F7A4D; --ok-soft:#E3F3EA;
-  --font:"Onest",system-ui,-apple-system,"Segoe UI",sans-serif;
-}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#131417; --surface:#1C1E22; --fg:#ECECEE; --muted:#9A9DA6; --line:#2B2E33;
-  --accent:#F0484C; --accent-soft:#3A1D1F; --ok:#5CC98F; --ok-soft:#173226; color-scheme:dark }}
-:root[data-theme="dark"]{
-  --bg:#131417; --surface:#1C1E22; --fg:#ECECEE; --muted:#9A9DA6; --line:#2B2E33;
-  --accent:#F0484C; --accent-soft:#3A1D1F; --ok:#5CC98F; --ok-soft:#173226; color-scheme:dark }
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--fg);font-family:var(--font);font-size:15px;line-height:1.45}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
-.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-
-/* hero */
-.hero{padding-block:32px 22px;display:flex;flex-direction:column;gap:12px}
-.brand{align-self:flex-start;background:var(--accent);color:#fff;font-weight:700;font-size:12px;letter-spacing:.08em;padding:6px 12px;border-radius:999px}
-h1{font-weight:800;font-size:clamp(30px,5.4vw,52px);line-height:1.03;margin:0;letter-spacing:-.01em;text-wrap:balance;max-width:16ch}
-h1 em{font-style:normal;color:var(--accent)}
-.lead{color:var(--muted);margin:0;max-width:58ch;font-size:16px}
-.stats{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:6px;font-variant-numeric:tabular-nums}
-.stats div{display:flex;flex-direction:column}
-.stats b{font-size:20px;font-weight:700}
-.stats small{font-size:12px;color:var(--muted)}
-
-/* tier nav */
-nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
-nav .wrap{display:flex;gap:8px;overflow-x:auto;padding-block:10px;scrollbar-width:none}
-nav a{flex:none;text-decoration:none;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:14px;font-weight:500;white-space:nowrap;font-variant-numeric:tabular-nums}
-nav a:hover{border-color:var(--accent)}
-nav a span{color:var(--muted);margin-left:6px}
-
-/* ladder */
-.ladder{position:relative;padding-block:8px 24px}
-.tier{position:relative;padding-left:34px;padding-top:30px;scroll-margin-top:70px}
-.tier::before{content:"";position:absolute;left:9px;top:0;bottom:0;width:2px;background:var(--line)}
-.tier:first-child::before{top:44px}
-.tier:last-child::before{bottom:auto;height:44px}
-.dot{position:absolute;left:0;top:34px;width:20px;height:20px;border-radius:50%;background:var(--bg);border:2px solid var(--accent);display:grid;place-items:center}
-.dot::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent)}
-.tier-head{display:flex;flex-direction:column;gap:4px;margin-bottom:16px}
-.tier-step{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
-.tier-head h2{margin:0;font-size:clamp(22px,3.4vw,30px);font-weight:800;line-height:1.1;font-variant-numeric:tabular-nums}
-.tier-head h2 .rub{color:var(--muted);font-weight:500;font-size:.6em;margin-left:8px;white-space:nowrap}
-.tier-head p{margin:0;color:var(--muted);max-width:62ch}
-
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px}
-.card{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;color:inherit;text-decoration:none;transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease}
-.card:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:0 10px 24px -14px rgba(0,0,0,.35)}
-.card:focus-visible,nav a:focus-visible,.contact a:focus-visible,.copy:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.cover{position:relative;aspect-ratio:16/9;max-width:100%;background:var(--line) center/cover no-repeat}
-.num{position:absolute;left:10px;top:10px;background:rgba(0,0,0,.62);color:#fff;font-weight:700;font-size:13px;padding:4px 9px;border-radius:8px;font-variant-numeric:tabular-nums;backdrop-filter:blur(4px)}
-.badges{position:absolute;right:10px;top:10px;display:flex;gap:6px}
-.badge{font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:4px 8px;border-radius:6px;background:var(--accent);color:#fff}
-.badge.ok{background:var(--ok)}
-.info{display:flex;flex-direction:column;gap:8px;padding:14px 16px 16px;flex:1}
-.name{font-weight:700;font-size:18px;line-height:1.2}
-.place{color:var(--muted);font-size:13px;margin-top:-4px}
-.pitch{margin:0;font-size:14px;min-height:2.9em}
-.facts{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:10px;border-top:1px solid var(--line);padding-top:10px;margin-top:auto;font-variant-numeric:tabular-nums}
-.facts div{display:flex;flex-direction:column;min-width:0}
-.facts small{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
-.facts b{font-size:15px;line-height:1.25}
-.facts .r{font-size:12px;color:var(--muted)}
-.foot{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:12px;color:var(--muted)}
-.foot .go{color:var(--accent);font-weight:600;font-size:13px;white-space:nowrap}
-
-/* contact */
-.guide{scroll-margin-top:70px;margin-top:24px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;text-decoration:none;color:inherit;transition:border-color .15s ease}
-.guide:hover{border-color:var(--accent)}
-.guide:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.guide .gc{aspect-ratio:16/9;max-width:100%;background:var(--line) center/cover no-repeat}
-.guide .gb{padding:20px 22px;display:flex;flex-direction:column;gap:10px;min-width:0}
-.guide .ge{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
-.guide h2{margin:0;font-size:24px;font-weight:800;line-height:1.15}
-.guide p{margin:0;color:var(--muted)}
-.guide ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px;font-size:14px}
-.guide .go{margin-top:auto;color:var(--accent);font-weight:600;font-size:14px}
+:root{--bg:#F3F3F1;--s:#fff;--fg:#16171A;--mu:#686B73;--ln:#E0E0DC;--ac:#E3262B;--acs:#FBE8E8;--ok:#1F7A4D;--ink:#17181C;--f:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+@media (prefers-color-scheme:dark){:root{--bg:#131417;--s:#1C1E22;--fg:#ECECEE;--mu:#9A9DA6;--ln:#2B2E33;--ac:#F0484C;--acs:#3A1D1F;--ok:#5CC98F;--ink:#26282D}}
+*,*:before,*:after{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.45 var(--f);-webkit-text-size-adjust:100%;padding-bottom:calc(90px + env(safe-area-inset-bottom))}
+button{font:inherit;color:inherit;cursor:pointer}a{color:inherit}[hidden]{display:none!important}
+.w{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}
+:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+/* top */
+.top{display:flex;justify-content:space-between;align-items:center;padding-top:calc(14px + env(safe-area-inset-top))}
+.brand{background:var(--ac);color:#fff;font-weight:700;font-size:12px;letter-spacing:.08em;padding:6px 12px;border-radius:99px}
+.cur{display:flex;background:var(--s);border:1px solid var(--ln);border-radius:99px;padding:3px}
+.cur button{border:0;background:none;padding:5px 11px;border-radius:99px;font-weight:700;font-size:13px;color:var(--mu)}
+.cur button[aria-pressed=true]{background:var(--fg);color:var(--bg)}
+.hero{padding-block:18px 8px}
+h1{font-weight:800;font-size:clamp(30px,6vw,50px);line-height:1.04;margin:0;letter-spacing:-.01em;max-width:16ch}h1 em{font-style:normal;color:var(--ac)}
+.lead{color:var(--mu);margin:10px 0 0;font-size:16px;max-width:56ch}
+.stats{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:14px}.stats div{display:flex;flex-direction:column}.stats b{font-size:19px}.stats small{font-size:12px;color:var(--mu)}
+/* finder */
+.finder{background:var(--s);border:1px solid var(--ln);border-radius:20px;padding:16px;margin-top:18px;box-shadow:0 10px 30px -22px rgba(0,0,0,.4)}
+.finder h2{margin:0 0 10px;font-size:18px}
+.lbl{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mu);margin:12px 0 7px}
+.chips{display:flex;gap:7px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;border:1px solid var(--ln);background:var(--bg);border-radius:12px;padding:10px 14px;font-weight:600;font-size:15px;white-space:nowrap}
+.chip[aria-pressed=true]{background:var(--ac);border-color:var(--ac);color:#fff}
+.frow{display:flex;gap:8px;margin-top:14px}
+.btn{border:1px solid var(--ln);background:var(--bg);border-radius:12px;padding:12px 14px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.btn.m{background:var(--ac);border-color:var(--ac);color:#fff;flex:1}
+.cnt{display:inline-block;min-width:20px;padding:0 6px;border-radius:99px;background:var(--ac);color:#fff;font-size:12px;line-height:20px;text-align:center}
+/* sticky bar */
+.sbar{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--ln);padding-top:env(safe-area-inset-top)}
+.sbar .w{display:flex;gap:8px;align-items:center;padding-block:9px;overflow-x:auto;scrollbar-width:none}.sbar .w::-webkit-scrollbar{display:none}
+.sbar .chip{padding:8px 12px;font-size:14px;border-radius:99px}
+.sbar .fb{flex:none;border:1px solid var(--fg);background:var(--fg);color:var(--bg);border-radius:99px;padding:8px 13px;font-weight:700;font-size:14px}
+/* guide */
+.guide{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);background:var(--s);border:1px solid var(--ln);border-radius:16px;overflow:hidden;text-decoration:none;margin-top:18px}
+.guide .gc{aspect-ratio:16/9;background:var(--ln) center/cover}.guide .gb{padding:16px 18px;display:flex;flex-direction:column;gap:6px;justify-content:center}
+.guide small{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ac)}.guide b{font-size:20px;line-height:1.2}.guide span{color:var(--mu);font-size:14px}
 @media (max-width:700px){.guide{grid-template-columns:1fr}}
-.contact{margin-block:28px 48px;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px;display:grid;grid-template-columns:auto 1fr;gap:18px 22px;align-items:center}
-.contact img{width:96px;height:96px;border-radius:16px;object-fit:cover}
-.contact h3{margin:0 0 4px;font-size:22px;font-weight:800}
-.contact p{margin:0;color:var(--muted)}
-.links{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:10px}
-.links a,.copy{font:inherit;font-size:14px;font-weight:600;text-decoration:none;border-radius:10px;padding:10px 16px;border:1px solid var(--line);color:var(--fg);background:var(--bg);cursor:pointer}
-.links a.main{background:var(--accent);border-color:var(--accent);color:#fff}
-.note{font-size:12px;color:var(--muted);padding-bottom:28px}
-@media (max-width:520px){.contact{grid-template-columns:1fr}.facts{grid-template-columns:1fr 1fr}.facts .beach{display:none}}
+/* results */
+.rhead{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:22px 0 12px;flex-wrap:wrap}
+.rhead h2{margin:0;font-size:22px}.rhead small{display:block;color:var(--mu);font-size:14px;font-weight:500}
+select{font:inherit;font-weight:600;border:1px solid var(--ln);background:var(--s);color:var(--fg);border-radius:10px;padding:9px 10px}
+.tier{padding-top:26px;scroll-margin-top:70px}.th small{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ac)}
+.th h2{margin:2px 0 4px;font-size:clamp(21px,3.4vw,28px)}.th h2 span{color:var(--mu);font-weight:500;font-size:.6em;margin-left:8px}.th p{margin:0 0 14px;color:var(--mu);max-width:62ch}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px}
+.card{position:relative;display:flex;flex-direction:column;background:var(--s);border:1px solid var(--ln);border-radius:16px;overflow:hidden}
+.card>a.cv{position:relative;display:block;aspect-ratio:16/10;background:var(--ln) center/cover}
+.num{position:absolute;left:10px;top:10px;background:rgba(0,0,0,.6);color:#fff;font-weight:700;font-size:12px;padding:3px 8px;border-radius:7px}
+.badge{position:absolute;left:10px;bottom:10px;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:4px 8px;border-radius:6px;background:var(--ac);color:#fff}.badge.ok{background:var(--ok)}
+.fav{position:absolute;right:10px;top:10px;width:40px;height:40px;border-radius:50%;border:0;background:rgba(255,255,255,.92);display:grid;place-items:center;font-size:20px;line-height:1;color:#222;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.fav[aria-pressed=true]{color:var(--ac)}
+.info{padding:13px 15px 15px;display:flex;flex-direction:column;gap:6px;flex:1}
+.nm{font-weight:800;font-size:18px;line-height:1.2;text-decoration:none}.pl{color:var(--mu);font-size:13px;margin-top:-3px}.pt{margin:0;font-size:14px}
+.units{display:flex;flex-direction:column;gap:5px;margin-top:2px}
+.un{display:flex;justify-content:space-between;gap:10px;background:var(--bg);border-radius:9px;padding:7px 10px;font-size:14px}.un b{white-space:nowrap}.un span{color:var(--mu)}
+.un.hit{background:var(--acs)}.un.hit span{color:var(--fg)}
+.facts{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:8px;border-top:1px solid var(--ln);padding-top:9px;margin-top:auto}
+.facts small{display:block;font-size:11px;color:var(--mu);text-transform:uppercase;letter-spacing:.05em}.facts b{font-size:14px;line-height:1.25}
+.go{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--mu);margin-top:4px}.go a{color:var(--ac);font-weight:700;font-size:14px;text-decoration:none}
+#res{scroll-margin-top:64px}.empty{background:var(--s);border:1px dashed var(--ln);border-radius:16px;padding:24px;text-align:center}
+/* sheet */
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:50}
+.sheet{position:fixed;left:0;right:0;bottom:0;z-index:51;background:var(--s);border-radius:20px 20px 0 0;max-height:88vh;display:flex;flex-direction:column;max-width:720px;margin:0 auto}
+.sh-h{display:flex;justify-content:space-between;align-items:center;padding:16px 18px;border-bottom:1px solid var(--ln)}.sh-h b{font-size:18px}
+.sh-h button{border:0;background:none;font-size:15px;color:var(--ac);font-weight:700}
+.sh-b{overflow-y:auto;padding:4px 18px 16px}.sh-b .chips{flex-wrap:wrap;overflow:visible}
+.sh-f{padding:12px 18px calc(12px + env(safe-area-inset-bottom));border-top:1px solid var(--ln);display:flex;gap:8px}
+/* bottom */
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px max(12px,env(safe-area-inset-left)) calc(10px + env(safe-area-inset-bottom));pointer-events:none}
+.dock .in{max-width:720px;margin:0 auto;display:flex;gap:8px;pointer-events:auto}
+.dock a,.dock button{flex:1;border:0;border-radius:14px;padding:14px;font-weight:700;text-align:center;text-decoration:none;box-shadow:0 8px 24px -8px rgba(0,0,0,.45)}
+.dock .wa{background:#1FA855;color:#fff}.dock .fv{background:var(--fg);color:var(--bg);flex:.8}
+/* contact */
+.contact{margin-top:34px;background:var(--s);border:1px solid var(--ln);border-radius:18px;padding:20px;display:grid;grid-template-columns:auto 1fr;gap:16px 20px;align-items:center}
+.contact img{width:88px;height:88px;border-radius:16px;object-fit:cover}.contact h3{margin:0 0 4px;font-size:21px}.contact p{margin:0;color:var(--mu)}
+.links{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px}.links a{text-decoration:none;border:1px solid var(--ln);background:var(--bg);border-radius:12px;padding:11px 15px;font-weight:700}.links a.m{background:var(--ac);border-color:var(--ac);color:#fff}
+.note{font-size:12px;color:var(--mu);padding:14px 0 10px}
+@media (max-width:520px){.contact{grid-template-columns:1fr}.facts{grid-template-columns:1fr 1fr}.facts .bh{display:none}}
+</style></head><body>
 
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card{transition:none}.card:hover{transform:none}}
-</style>
-
-<header class="wrap hero">
-  <span class="brand">ЭТАЖИ · ПХУКЕТ</span>
-  <h1>Новостройки Пхукета <em>от 2,39 млн ฿</em></h1>
-  <p class="lead">Проекты выстроены по цене входа: от самых доступных к премиальным. Нажмите на проект, чтобы открыть его презентацию.</p>
-  <div class="stats" id="stats"></div>
+<header class="w">
+  <div class="top"><span class="brand">ЭТАЖИ · ПХУКЕТ</span>
+    <div class="cur" role="group" aria-label="Валюта"><button data-cur="thb">฿</button><button data-cur="rub">₽</button><button data-cur="usd">$</button></div></div>
+  <div class="hero"><h1>Новостройки Пхукета <em>от 2,39 млн ฿</em></h1>
+    <p class="lead">Выберите, сколько нужно спален и какой бюджет, — сразу покажу подходящие проекты и цены. Нажмите ♡, чтобы собрать подборку и отправить её мне.</p>
+    <div class="stats" id="stats"></div></div>
+  <div class="finder" id="finder">
+    <h2>Подобрать недвижимость</h2>
+    <div class="lbl">Спальни</div><div class="chips" id="f-beds"></div>
+    <div class="lbl">Бюджет</div><div class="chips" id="f-max"></div>
+    <div class="frow"><button class="btn" id="open-f" type="button">Ещё фильтры <span class="cnt" id="xcnt" hidden></span></button><button class="btn m" id="show" type="button">Показать</button></div>
+  </div>
 </header>
 
-<nav aria-label="Ценовые уровни"><div class="wrap" id="nav"></div></nav>
+<div class="sbar" id="sbar"><div class="w" id="sb"></div></div>
 
-<section class="wrap"><a class="guide" id="gid" href="p/Thailand_Guide.html">
-  <div class="gc" style="background-image:url('img/Thailand_Guide-01.jpg')" role="img" aria-label="Обложка гида покупателя"></div>
-  <div class="gb">
-    <span class="ge">Начните с этого · гид покупателя</span>
-    <h2>Таиланд и Пхукет: что нужно знать</h2>
-    <p>Коротко и простым языком о покупке недвижимости иностранцем.</p>
-    <ul><li>Как здесь жить: климат, визы, медицина, школы, районы</li><li>Что можно купить: Freehold и Leasehold, налоги, порядок сделки</li><li>Выгодно ли: доходность аренды и рост цен</li></ul>
-    <span class="go">Открыть гид →</span>
-  </div></a></section>
-<main class="wrap ladder" id="ladder"></main>
-
-<section class="wrap">
-  <div class="contact">
+<div class="w">
+  <a class="guide" href="p/Thailand_Guide.html" id="gid"><div class="gc" style="background-image:url('img/Thailand_Guide-01.jpg')"></div>
+    <div class="gb"><small>Начните с этого · гид покупателя</small><b>Таиланд и Пхукет: что нужно знать</b><span>Визы, Freehold и Leasehold, налоги, порядок сделки и доходность — простым языком.</span></div></a>
+  <main id="res"></main>
+  <section class="contact" id="contact">
     <img src="img/agent.jpg" alt="Александр Косарев">
-    <div>
-      <h3>Александр Косарев</h3>
-      <p>Эксперт по недвижимости Пхукета · агентство «Этажи». Подберу вариант под ваш бюджет, пришлю свежий прайс и расчёт аренды.</p>
-    </div>
-    <div class="links">
-      <a class="main" href="https://wa.me/66811403589" target="_blank" rel="noopener">WhatsApp · +66 81 140 3589</a>
-      <a href="https://t.me/OOOKOSAREV" target="_blank" rel="noopener">Telegram · @OOOKOSAREV</a>
-      <button class="copy" id="copy-mail" type="button">a.s.kosarev@mail.etagi.com</button>
-    </div>
+    <div><h3>Александр Косарев</h3><p>Эксперт по недвижимости Пхукета · агентство «Этажи». Подберу вариант под ваш бюджет, пришлю свежий прайс, планировки и расчёт аренды. Для покупателя — без комиссии.</p></div>
+    <div class="links"><a class="m" href="https://wa.me/66811403589" target="_blank" rel="noopener">WhatsApp · +66 81 140 3589</a><a href="https://t.me/OOOKOSAREV" target="_blank" rel="noopener">Telegram · @OOOKOSAREV</a><a href="mailto:a.s.kosarev@mail.etagi.com">a.s.kosarev@mail.etagi.com</a></div>
+  </section>
+  <p class="note">Цены — по прайсам застройщиков и ценам «Этажей» на октябрь–ноябрь 2026, наличие меняется. Курсы: 1 ฿ ≈ 2,6 ₽, 1 $ ≈ 33 ฿. Сроки сдачи — по данным застройщиков и агентств, точный срок фиксируется в договоре.</p>
+</div>
+
+<div class="ov" id="ov" hidden></div>
+<div class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-label="Фильтры">
+  <div class="sh-h"><b>Фильтры</b><button type="button" id="reset">Сбросить</button></div>
+  <div class="sh-b">
+    <div class="lbl">Спальни</div><div class="chips" id="s-beds"></div>
+    <div class="lbl">Бюджет</div><div class="chips" id="s-max"></div>
+    <div class="lbl">Район</div><div class="chips" id="s-area"></div>
+    <div class="lbl">Тип</div><div class="chips" id="s-type"></div>
+    <div class="lbl">Готовность</div><div class="chips" id="s-st"></div>
+    <div class="lbl">Сортировка</div><div class="chips" id="s-sort"></div>
   </div>
-  <p class="note">Цены по прайсам и открытым данным застройщиков на октябрь 2026, актуальное наличие — по запросу. Курс: 1 ฿ ≈ 2,6 ₽.</p>
-</section>
+  <div class="sh-f"><button class="btn" type="button" id="close-f">Закрыть</button><button class="btn m" type="button" id="apply">Показать</button></div>
+</div>
+
+<div class="dock"><div class="in" id="dock"></div></div>
 
 <script>
-const RATE = 2.6;
 const TIERS = [
   { id:"do-3-5", step:"Ступень 1 · старт", title:"до 3,5 млн ฿", rub:"≈ до 9 млн ₽",
     text:"Самый доступный вход: готовая квартира с ремонтом и новостройки рядом с Лагуной и Банг Тао.",
@@ -228,55 +218,109 @@ const TIERS = [
         pitch:"Всего 6 вилл с 4 спальнями, бассейном 12 м и видом на залив Камала.", badge:["Ультралюкс"] }
     ]}
     ];
-const fmt = x => x.toLocaleString("ru-RU",{minimumFractionDigits:x<10?2:1,maximumFractionDigits:2});
-const rub = x => (Math.round(x*RATE*10)/10).toLocaleString("ru-RU",{maximumFractionDigits:1});
-const all = TIERS.flatMap(t=>t.p);
-const word = n => n%10===1&&n%100!==11?"проект":[2,3,4].includes(n%10)&&![12,13,14].includes(n%100)?"проекта":"проектов";
+// u: [спальни (0 = студия), площадь от, площадь до, цена от в млн ฿ | null]
+// a: район · t: apt (квартира) / villa (вилла, таунхаус)
+const META = {
+  The_Cube_Amaze_Srisoonthon:{a:"north",t:"apt",u:[[1,29,34,2.39],[2,48,69,3.99]]},
+  The_Title_Sierra_Cherngtalay:{a:"bangtao",t:"apt",u:[[1,28,60,3.145],[2,56,63,6.635]]},
+  VIP_TropiKa_Bangtao:{a:"bangtao",t:"apt",u:[[0,30,30,3.35],[1,45,45,5.051],[2,59.8,59.8,7.654],[3,90,190,null]]},
+  AH_Proud_Rawai:{a:"south",t:"apt",u:[[1,30.5,39.3,3.526],[2,69.8,69.8,9.875]]},
+  The_Olive_Nai_Yang:{a:"north",t:"apt",u:[[1,32,52,4.097],[2,56,63,7.177]]},
+  The_Title_Vivana_Kamala:{a:"kamala",t:"apt",u:[[1,30,56,4.12],[2,60,128,8.5]]},
+  Ozone_Signature_Bang_Tao:{a:"bangtao",t:"apt",u:[[1,32,37,4.16],[2,56,64,7.28],[3,111,111,14.43]]},
+  The_Gens_by_Botanica:{a:"bangtao",t:"apt",u:[[1,34,66,4.27],[2,72,74,9.08]]},
+  AH_Palmetto_Park:{a:"karon",t:"apt",u:[[1,30.2,31.9,4.375]]},
+  AH_Palmetto_Condo:{a:"karon",t:"apt",u:[[1,38.9,45.5,4.375],[2,68.2,68.2,9.15]]},
+  AH_Proud_Residence:{a:"karon",t:"apt",u:[[1,35,35,5.0],[2,60.5,60.5,18.049]]},
+  The_Title_Fizz_Kata:{a:"karon",t:"apt",u:[[1,31,52,5.13],[2,58,64,8.5],[3,105,129,16.0]]},
+  The_Kuartz_Karon:{a:"karon",t:"apt",u:[[1,32,48,5.28],[2,57,63,9.76]]},
+  The_Balcony_Nai_Yang:{a:"north",t:"apt",u:[[1,33,50,5.742],[2,50,63,8.786]]},
+  AH_Above_Element_Condo:{a:"bangtao",t:"apt",u:[[1,38,47,5.74],[3,138,138,19.712]]},
+  Biancana_Surin:{a:"kamala",t:"apt",u:[[1,31,62,6.131],[2,62,100,12.494],[3,131,131,27.609]]},
+  AH_Hennessy_Condo:{a:"karon",t:"apt",u:[[1,46.5,47,9.32]]},
+  The_Verdant_by_Botanica:{a:"north",t:"villa",u:[[3,250,250,15.9]]},
+  Botanica_Skyport:{a:"north",t:"villa",u:[[3,340,365,19.9]]},
+  AH_Above_Element_Residence:{a:"bangtao",t:"villa",u:[[3,245,308,21.358]]},
+  Casa_de_Monte_Ko_Kaeo:{a:"south",t:"villa",u:[[3,297,369,28.3],[4,424,450,39.3]]},
+  Grand_Sea_Through:{a:"south",t:"villa",u:[[4,null,null,28.8]]},
+  Botanica_Majestia:{a:"south",t:"villa",u:[[3,305,325,28.84],[4,370,430,33.9],[5,445,445,45.34]]},
+  AH_Above_Element_Villa:{a:"bangtao",t:"villa",u:[[3,370,370,39.992]]},
+  AH_Fifth_Element:{a:"bangtao",t:"villa",u:[[3,485,491,43.75]]},
+  AH_Hennessy_Villa:{a:"karon",t:"villa",u:[[3,435,470,72.876]]},
+  Kamala_Ocean_Valley:{a:"kamala",t:"villa",u:[[4,755,790,126.107]]}
+};
 
-document.getElementById("stats").innerHTML = `
-  <div><b>${all.length}</b><small>${word(all.length)}</small></div>
-  <div><b>${new Set(all.map(p=>p.dev.split(" · ")[0].split(" × ")[0])).size}</b><small>застройщиков</small></div>
-  <div><b>${fmt(all[0].p)} – ${fmt(all[all.length-1].p)} млн ฿</b><small>цена входа</small></div>`;
-
-document.getElementById("nav").innerHTML = `<a href="#gid">Гид покупателя</a>` + TIERS.map(t=>`<a href="#${t.id}">${t.title}<span>${t.p.length}</span></a>`).join("");
-
-let i = 0;
-document.getElementById("ladder").innerHTML = TIERS.map(t => `
-  <section class="tier" id="${t.id}">
-    <span class="dot" aria-hidden="true"></span>
-    <div class="tier-head">
-      <span class="tier-step">${t.step}</span>
-      <h2>${t.title}<span class="rub">${t.rub}</span></h2>
-      <p>${t.text}</p>
-    </div>
-    <div class="grid">${t.p.map(p => { i++; return `
-      <a class="card" href="p/${p.f}.html">
-        <div class="cover" style="background-image:url('img/${p.f}-01.jpg')" role="img" aria-label="Обложка презентации ${p.n}">
-          <span class="num">${String(i).padStart(2,"0")}</span>
-          ${p.badge?`<span class="badges"><span class="badge ${p.badge[1]||""}">${p.badge[0]}</span></span>`:""}
-        </div>
-        <div class="info">
-          <span class="name">${p.n}</span>
-          <span class="place">${p.d}</span>
-          <p class="pitch">${p.pitch}</p>
-          <div class="facts">
-            <div><small>Вход от</small><b>${fmt(p.p)} млн ฿</b><span class="r">≈ ${rub(p.p)} млн ₽</span></div>
-            <div><small>Ключи</small><b>${p.k}</b></div>
-            <div class="beach"><small>${p.b?"До пляжа":"Школа"}</small><b>${p.b||p.s||"500 м"}</b></div>
-          </div>
-          <div class="foot"><span>${p.dev}</span><span class="go">Презентация →</span></div>
-        </div>
-      </a>`;}).join("")}
-    </div>
-  </section>`).join("");
-
-const mail = document.getElementById("copy-mail");
-mail.addEventListener("click", () => {
-  const t = "a.s.kosarev@mail.etagi.com";
-  const done = () => { mail.textContent = "Почта скопирована"; setTimeout(()=>mail.textContent=t,1800); };
-  try { navigator.clipboard.writeText(t).then(done).catch(()=>{ getSelection().selectAllChildren(mail); }); }
-  catch(e){ getSelection().selectAllChildren(mail); }
+const RUB=2.6, USD=33, WA="66811403589";
+const AREAS={bangtao:"Банг Тао · Лагуна",karon:"Карон · Ката",kamala:"Камала · Сурин",north:"Север · Най Янг · Таланг",south:"Юг · Раваи · Ко Кео"};
+const BEDS=[["0","Студия"],["1","1 спальня"],["2","2 спальни"],["3","3 спальни"],["4","4+ спальни"]];
+const MAXS=[["5","до 5 млн ฿"],["10","до 10 млн ฿"],["20","до 20 млн ฿"],["50","до 50 млн ฿"]];
+const TYPES=[["apt","Квартира"],["villa","Вилла · таунхаус"]];
+const STS=[["ready","Готовые"],["build","Строятся"]];
+const SORTS=[["price","Сначала дешёвые"],["price-d","Сначала дорогие"],["ready","Сначала готовые"]];
+const ALL=TIERS.flatMap(t=>t.p.map(p=>Object.assign(p,{tier:t.id},META[p.f]||{u:[]})));
+ALL.forEach((p,i)=>p.n0=i+1);
+const st={beds:[],max:"",area:[],type:[],st:[],sort:"price",cur:"thb"};
+let fav=[];try{fav=JSON.parse(localStorage.getItem("fav")||"[]")}catch(e){}
+try{st.cur=localStorage.getItem("cur")||"thb"}catch(e){}
+// url
+(function(){const q=new URLSearchParams(location.search);["beds","area","type","st"].forEach(k=>{if(q.get(k))st[k]=q.get(k).split(",")});if(q.get("max"))st.max=q.get("max");if(q.get("sort"))st.sort=q.get("sort");if(q.get("cur"))st.cur=q.get("cur")})();
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const nf=(x,d)=>x.toLocaleString("ru-RU",{minimumFractionDigits:0,maximumFractionDigits:d});
+function money(m,cur=st.cur){if(m==null)return"по запросу";if(cur=="rub"){return nf(m*RUB,1)+" млн ₽"}if(cur=="usd"){const v=m*1e6/USD;return v>=1e6?nf(v/1e6,2)+" млн $":nf(Math.round(v/1000),0)+" тыс. $"}return nf(m,m<10?2:1)+" млн ฿"}
+function money2(m){return st.cur=="thb"?"≈ "+money(m,"rub"):"≈ "+money(m,"thb")}
+const bedName=b=>b==0?"Студия":b==1?"1 спальня":(b>=5?b+" спален":b+" спальни");
+const area=u=>u[1]==null?"":(u[1]==u[2]?nf(u[1],1):nf(u[1],1)+"–"+nf(u[2],1))+" м²";
+const isReady=p=>p.k=="Готов";
+const anyF=()=>st.beds.length||st.max||st.area.length||st.type.length||st.st.length;
+function matchUnits(p){let u=p.u;if(st.beds.length)u=u.filter(x=>st.beds.some(b=>b=="4"?x[0]>=4:x[0]==+b));if(st.max)u=u.filter(x=>x[3]!=null&&x[3]<=+st.max);return u}
+function filtered(){let r=ALL.filter(p=>{if(st.area.length&&!st.area.includes(p.a))return false;if(st.type.length&&!st.type.includes(p.t))return false;if(st.st.length){const r=isReady(p);if(!(st.st.includes("ready")&&r||st.st.includes("build")&&!r))return false}if((st.beds.length||st.max)&&!matchUnits(p).length)return false;return true});
+ const pr=p=>{const m=matchUnits(p).map(x=>x[3]).filter(x=>x!=null);return m.length?Math.min(...m):p.p};
+ r.sort((a,b)=>st.sort=="price-d"?pr(b)-pr(a):st.sort=="ready"?(isReady(b)-isReady(a))||pr(a)-pr(b):pr(a)-pr(b));return r}
+function card(p){const hits=(st.beds.length||st.max)?matchUnits(p):[];const show=(hits.length?hits:p.u);const fv=fav.includes(p.f);
+ const from=hits.length?Math.min(...hits.map(x=>x[3]).filter(x=>x!=null)):p.p;
+ return `<article class="card"><a class="cv" href="p/${p.f}.html" style="background-image:url('img/${p.f}-01.jpg')" aria-label="${esc(p.n)}">${anyF()?"":`<span class="num">${String(p.n0).padStart(2,"0")}</span>`}${p.badge?`<span class="badge ${p.badge[1]||""}">${esc(p.badge[0])}</span>`:""}</a>
+ <button class="fav" data-fav="${p.f}" aria-pressed="${fv}" aria-label="В избранное">${fv?"♥":"♡"}</button>
+ <div class="info"><a class="nm" href="p/${p.f}.html">${esc(p.n)}</a><span class="pl">${esc(p.d)} · ${esc(p.dev)}</span>${hits.length?"":`<p class="pt">${esc(p.pitch)}</p>`}
+ <div class="units">${show.slice(0,4).map(u=>`<div class="un ${hits.length?"hit":""}"><span>${bedName(u[0])}${area(u)?" · "+area(u):""}</span><b>${u[3]==null?"по запросу":"от "+money(u[3])}</b></div>`).join("")}</div>
+ <div class="facts"><div><small>Вход от</small><b>${money(isFinite(from)?from:p.p)}</b><small style="text-transform:none;letter-spacing:0">${money2(isFinite(from)?from:p.p)}</small></div><div><small>${isReady(p)?"Статус":"Сдача"}</small><b>${esc(p.k)}</b></div><div class="bh"><small>${p.b?"До пляжа":"Школа"}</small><b>${esc(p.b||p.s||"500 м")}</b></div></div>
+ <div class="go"><span>${p.t=="villa"?"Вилла / таунхаус":"Квартиры"}</span><a href="p/${p.f}.html">Подробнее →</a></div></div></article>`}
+function summary(){const s=[];if(st.beds.length)s.push(st.beds.map(b=>BEDS.find(x=>x[0]==b)[1]).join(", "));if(st.max)s.push("до "+st.max+" млн ฿");if(st.area.length)s.push(st.area.map(a=>AREAS[a]).join(", "));if(st.type.length)s.push(st.type.map(t=>TYPES.find(x=>x[0]==t)[1]).join(", "));if(st.st.length)s.push(st.st.map(t=>STS.find(x=>x[0]==t)[1]).join(", "));return s.join(" · ")}
+function render(){
+ const R=document.getElementById("res");
+ if(!anyF()){const tiers=TIERS.map(t=>`<section class="tier" id="${t.id}"><div class="th"><small>${esc(t.step)}</small><h2>${esc(t.title)}<span>${esc(t.rub)}</span></h2><p>${esc(t.text)}</p></div><div class="grid">${t.p.map(card).join("")}</div></section>`).join("");R.innerHTML=tiers}
+ else{const r=filtered();const fr=r.map(p=>{const m=matchUnits(p).map(x=>x[3]).filter(x=>x!=null);return m.length?Math.min(...m):null}).filter(x=>x!=null);
+  R.innerHTML=`<div class="rhead"><h2>Найдено: ${r.length} ${word(r.length)}<small>${esc(summary())}${fr.length?" · от "+money(Math.min(...fr)):""}</small></h2><select id="sort" aria-label="Сортировка">${SORTS.map(s=>`<option value="${s[0]}" ${st.sort==s[0]?"selected":""}>${s[1]}</option>`).join("")}</select></div>`+
+  (r.length?`<div class="grid">${r.map(card).join("")}</div>`:`<div class="empty"><b>По этим условиям в каталоге ничего нет</b><p>Напишите мне — подберу вне каталога или подскажу, что изменить.</p><a class="btn m" style="display:inline-flex" href="${waLink()}" target="_blank" rel="noopener">Написать в WhatsApp</a></div>`);
+  const so=document.getElementById("sort");so&&so.addEventListener("change",e=>{st.sort=e.target.value;sync()})}
+ document.getElementById("gid").hidden=!!anyF();chipsAll();dock();
+}
+const word=n=>n%10==1&&n%100!=11?"проект":[2,3,4].includes(n%10)&&![12,13,14].includes(n%100)?"проекта":"проектов";
+function chipRow(id,opts,key,multi){const el=document.getElementById(id);if(!el)return;el.innerHTML=opts.map(o=>{const on=multi?st[key].includes(o[0]):st[key]==o[0];return `<button class="chip" type="button" data-k="${key}" data-v="${o[0]}" data-m="${multi?1:0}" aria-pressed="${on}">${o[1]}</button>`}).join("")}
+function chipsAll(){chipRow("f-beds",BEDS,"beds",1);chipRow("f-max",MAXS,"max",0);chipRow("s-beds",BEDS,"beds",1);chipRow("s-max",MAXS,"max",0);chipRow("s-area",Object.entries(AREAS),"area",1);chipRow("s-type",TYPES,"type",1);chipRow("s-st",STS,"st",1);chipRow("s-sort",SORTS,"sort",0);
+ const x=st.area.length+st.type.length+st.st.length;const xc=document.getElementById("xcnt");xc.hidden=!x;xc.textContent=x;
+ document.querySelectorAll(".cur button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.cur==st.cur));
+ const sb=document.getElementById("sb");const n=anyF()?filtered().length:ALL.length;
+ sb.innerHTML=`<button class="fb" type="button" data-open>⚙ Фильтры${anyF()?" · "+n:""}</button>`+BEDS.map(o=>`<button class="chip" type="button" data-k="beds" data-v="${o[0]}" data-m="1" aria-pressed="${st.beds.includes(o[0])}">${o[1]}</button>`).join("")+(anyF()?`<button class="chip" type="button" data-clear>✕ Сбросить</button>`:TIERS.map(t=>`<a class="chip" style="text-decoration:none" href="#${t.id}">${esc(t.title)}</a>`).join(""));
+ document.getElementById("apply").textContent=`Показать ${n} ${word(n)}`;document.getElementById("show").textContent=anyF()?`Показать ${n} ${word(n)}`:"Показать все";
+}
+function waLink(){let t="Здравствуйте, Александр! Посмотрел каталог новостроек Пхукета.";const s=summary();if(s)t+=" Ищу: "+s+".";if(fav.length){t+="\nПонравились:\n"+fav.map(f=>{const p=ALL.find(x=>x.f==f);return p?"• "+p.n+" — от "+money(p.p,"thb")+" https://etagiphuket.github.io/p/"+f+".html":""}).filter(Boolean).join("\n")}t+="\nПодскажите, пожалуйста, наличие и цены.";return "https://wa.me/"+WA+"?text="+encodeURIComponent(t)}
+function dock(){const d=document.getElementById("dock");d.innerHTML=(fav.length?`<button class="fv" type="button" id="favonly">♥ Избранное ${fav.length}</button>`:"")+`<a class="wa" href="${waLink()}" target="_blank" rel="noopener">${fav.length?"Отправить подборку":"Подобрать в WhatsApp"}</a>`;const fo=document.getElementById("favonly");fo&&fo.addEventListener("click",showFav)}
+function showFav(){const R=document.getElementById("res");const r=ALL.filter(p=>fav.includes(p.f));R.innerHTML=`<div class="rhead"><h2>Избранное: ${r.length}<small>Отправьте подборку мне — пришлю наличие и расчёт</small></h2><button class="btn" type="button" id="back">← Все проекты</button></div><div class="grid">${r.map(card).join("")}</div>`;document.getElementById("back").addEventListener("click",render);R.scrollIntoView()}
+function sync(scroll){const q=new URLSearchParams();["beds","area","type","st"].forEach(k=>st[k].length&&q.set(k,st[k].join(",")));st.max&&q.set("max",st.max);st.sort!="price"&&q.set("sort",st.sort);st.cur!="thb"&&q.set("cur",st.cur);history.replaceState(null,"",location.pathname+(q.toString()?"?"+q:""));render();if(scroll)document.getElementById("res").scrollIntoView({behavior:"smooth"})}
+document.addEventListener("click",e=>{const c=e.target.closest(".chip[data-k]");if(c){const k=c.dataset.k,v=c.dataset.v;if(c.dataset.m=="1"){st[k]=st[k].includes(v)?st[k].filter(x=>x!=v):[...st[k],v]}else{st[k]=st[k]==v&&k!="sort"?"":v}const inSheet=!!c.closest(".sheet"),inFinder=!!c.closest(".finder");if(inSheet||inFinder){chipsAll()}else sync(true);if(!inSheet&&!inFinder)return;return}
+ const f=e.target.closest("[data-fav]");if(f){e.preventDefault();const id=f.dataset.fav;fav=fav.includes(id)?fav.filter(x=>x!=id):[...fav,id];try{localStorage.setItem("fav",JSON.stringify(fav))}catch(_){}f.setAttribute("aria-pressed",fav.includes(id));f.textContent=fav.includes(id)?"♥":"♡";dock();return}
+ if(e.target.closest("[data-open]")||e.target.closest("#open-f")){open(true);return}
+ if(e.target.closest("[data-clear]")||e.target.closest("#reset")){Object.assign(st,{beds:[],max:"",area:[],type:[],st:[],sort:"price"});if(e.target.closest("#reset"))chipsAll();else sync();return}
+ const cu=e.target.closest("[data-cur]");if(cu){st.cur=cu.dataset.cur;try{localStorage.setItem("cur",st.cur)}catch(_){}sync();return}
 });
-
+function open(on){document.getElementById("sheet").hidden=!on;document.getElementById("ov").hidden=!on;document.body.style.overflow=on?"hidden":"";if(on)chipsAll()}
+document.getElementById("ov").addEventListener("click",()=>{open(false);sync()});
+document.getElementById("close-f").addEventListener("click",()=>{open(false);sync()});
+document.getElementById("apply").addEventListener("click",()=>{open(false);sync(true)});
+document.getElementById("show").addEventListener("click",()=>sync(true));
+document.addEventListener("keydown",e=>{if(e.key=="Escape"&&!document.getElementById("sheet").hidden){open(false);sync()}});
+const devs=new Set(ALL.map(p=>p.dev.split(" · ")[0].split(" × ")[0])).size;
+document.getElementById("stats").innerHTML=`<div><b>${ALL.length}</b><small>проектов</small></div><div><b>${devs}</b><small>застройщиков</small></div><div><b>${ALL.filter(isReady).length}</b><small>готовых к заселению</small></div><div><b>от 2,39 млн ฿</b><small>цена входа</small></div>`;
+render();
 </script>
 </body></html>
