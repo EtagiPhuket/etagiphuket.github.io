@@ -145,7 +145,13 @@ const TIERS = [
       { n:"The Title Sierra", d:"Чернгталай · Лагуна", p:3.15, k:"3 кв. 2028", b:"2,2 км", dev:"AssetWise × The Title", f:"The_Title_Sierra_Cherngtalay",
         pitch:"Жизнь у Лагуны по цене спальных районов. Porto de Phuket в 650 метрах." },
       { n:"VIP TropiKa", d:"Банг Тао", p:3.35, k:"1 кв. 2029", b:"400 м", dev:"VIP Property Development", f:"VIP_TropiKa_Bangtao",
-        pitch:"Курорт с лагуной-бассейном. Цена «Этажей» на 25–29% ниже прайса.", badge:["Цена Этажей"] }
+        pitch:"Курорт с лагуной-бассейном. Цена «Этажей» на 25–29% ниже прайса.", badge:["Цена Этажей"] },
+      { n:"dcondo Cove", d:"Кату · между Патонгом и таун", p:2.515, k:"июнь 2027", b:"15 мин", dev:"Sansiri", f:"Sansiri_Dcondo_Cove",
+        pitch:"Доступный вход в Пхукет: квартиры от 2,5 млн ฿ рядом с Патонгом и центром острова." },
+      { n:"THE BASE Bukit", d:"Пхукет-таун · у Central", p:2.55, k:"Готов", b:"—", dev:"Sansiri", f:"Sansiri_The_Base_Bukit",
+        pitch:"Готовые квартиры в 550 м от Central Phuket — под долгосрочную аренду.", badge:["Готов","ok"] },
+      { n:"THE BASE Rise", d:"Пхукет-таун · у Central Floresta", p:2.6, k:"Готов", b:"—", dev:"Sansiri", f:"Sansiri_The_Base_Rise",
+        pitch:"Готовые квартиры у Central Floresta. Прогноз аренды застройщика 8–11% в год.", badge:["Готов","ok"] }
     ]},
   { id:"3-5-5", step:"Ступень 2", title:"3,5 – 5 млн ฿", rub:"≈ 9–13 млн ₽",
     text:"Готовые квартиры и новостройки с мебелью: Раваи, Карон, Най Янг, Камала и Банг Тао.",
@@ -164,6 +170,8 @@ const TIERS = [
         pitch:"Готовые квартиры у пляжа Карон: бассейн-инфинити на крыше, фитнес, вид на горы.", badge:["Готов", "ok"] },
       { n:"Palmetto Condominium", d:"Карон", p:4.375, k:"Готов", b:"рядом", dev:"Art House Group", f:"AH_Palmetto_Condo",
         pitch:"Бутик-кондо в Кароне: квартира 39 м² с видом на море — от 4,38 млн ฿.", badge:["Вид на море"] },
+      { n:"Rhea by Sansiri", d:"Сурин", p:4.98, k:"нояб. 2027", b:"≈ 1 км", dev:"Sansiri", f:"Sansiri_Rhea_Surin",
+        pitch:"Тихий курорт между пляжами Сурин и Банг Тао: бассейн-лагуна, можно с питомцами.", badge:["Leasehold"] },
       { n:"Andaman Boutique Residences II", d:"Банг Тао · Andaman City", p:4.99, k:"4 кв. 2027", b:"500 м", dev:"Andaman City", f:"Andaman_Boutique_BLD2",
         pitch:"Самый доступный вход в Andaman City: студии и 1 спальня с террасами, у части — свой бассейн." }
     ]},
@@ -184,22 +192,32 @@ const TIERS = [
         pitch:"Курорт на Банг Тао: rooftop-сад, клубный дом с фитнесом и Mirage. Гарантия 7%." },
       { n:"Biancana", d:"Сурин", p:6.13, k:"март 2028", b:"200 м", dev:"AssetWise × The Title", f:"Biancana_Surin",
         pitch:"Малоэтажный курорт на первой линии Сурина, «пхукетской Ривьеры»." },
+      { n:"Anasiri Paklok", d:"Пак Лок · Таланг", p:5.63, k:"Готов", b:"—", dev:"Sansiri", f:"Sansiri_Anasiri_Paklok",
+        pitch:"Готовые семейные дома 4 спальни в закрытом посёлке — по цене квартиры.", badge:["Дом","ok"] },
+      { n:"Canvaz Palette", d:"Чернгталай · Банг Тао", p:6.56, k:"янв. 2028", b:"2,8 км", dev:"Sansiri", f:"Sansiri_Canvaz_Palette",
+        pitch:"Новый курорт у Банг Тао: бассейны-лагуны, онсэн, квартиры полностью с мебелью.", badge:["Новинка"] },
+      { n:"Canvas Cherngtalay", d:"Чернгталай · Boat Avenue", p:6.71, k:"Готов", b:"2 км", dev:"Sansiri", f:"Sansiri_Canvas_Cherngtalay",
+        pitch:"Готовый курорт у Boat Avenue: лагуна с горкой, гольф-симулятор, ключи за 30 дней.", badge:["Готов","ok"] },
       { n:"Atrium Andaman City", d:"Банг Тао · Andaman City", p:6.58, k:"4 кв. 2027", b:"500 м", dev:"Andaman City", f:"Andaman_Atrium",
         pitch:"Курорт с бассейнами-лагунами в 500 м от пляжа Банг Тао. Студии, 1–3 спальни, есть с бассейном." },
       { n:"Andaman Riviera by Radisson", d:"Банг Тао · 500 м до пляжа", p:6.82, k:"Готов", b:"500 м", dev:"Andaman City · Radisson", f:"Andaman_Riviera",
         pitch:"Готовые апартаменты под управлением Radisson в 500 м от пляжа Банг Тао. Чаноты выданы.", badge:["Готов", "ok"] }
     ]},
   { id:"7-15", step:"Ступень 4", title:"7 – 15 млн ฿", rub:"≈ 18–39 млн ₽",
-    text:"Просторные квартиры практически на пляже: первая линия Карона.",
+    text:"Просторные квартиры у моря: первая линия Карона и готовый дом у Laguna.",
     p:[
       { n:"Hennessy Residence", d:"Карон · у пляжа", p:9.32, k:"4 кв. 2027", b:"1 мин", dev:"Art House Group", f:"AH_Hennessy_Condo",
-        pitch:"Кондо в стиле ар-деко в минуте от пляжа Карон: сигарный салон и бар на крыше.", badge:["У пляжа"] }
+        pitch:"Кондо в стиле ар-деко в минуте от пляжа Карон: сигарный салон и бар на крыше.", badge:["У пляжа"] },
+      { n:"THE BASE Cherngtalay", d:"Чернгталай · Банг Тао", p:7.686, k:"Готов", b:"8 мин", dev:"Sansiri", f:"Sansiri_The_Base_Cherngtalay",
+        pitch:"Готовый дом рядом с Laguna: онсэн, общая кухня, парк для собак.", badge:["Готов","ok"] }
     ]},
   { id:"villy", step:"Ступень 5 · премиум", title:"Виллы и таунхаусы 15–30 млн ฿", rub:"≈ 41–75 млн ₽",
     text:"Собственный дом с бассейном и садом: камерные посёлки на севере и юге острова и посёлки рядом с британской школой. Виллы Botanica строятся под покупателя: стройка стартует после вашей брони, платежи идут по этапам.",
     p:[
       { n:"The Verdant by Botanica", d:"Таланг · Пру Джампа", p:15.9, k:"≈ 12 мес.", b:"12 мин", dev:"Botanica", f:"The_Verdant_by_Botanica",
         pitch:"Камерный посёлок из 7 вилл: 3 спальни, свой бассейн, гараж на 2 машины.", badge:["Акция"] },
+      { n:"Setthasiri Kohkaew", d:"Ко Кео · у BIS", p:16.8, k:"4 кв. 2026", b:"—", dev:"Sansiri", f:"Sansiri_Setthasiri_Kohkaew",
+        pitch:"Премиальные дома 4 спальни в неоклассическом посёлке рядом с британской школой." },
       { n:"Botanica Skyport", d:"Май Кхао · у аэропорта", p:19.9, k:"≈ 12 мес.", b:"7 мин", dev:"Botanica", f:"Botanica_Skyport",
         pitch:"Всего 5 вилл в балийском стиле: 3 спальни, бассейн, аэропорт в 5 минутах.", badge:["Акция"] },
       { n:"Above Element Residence", d:"Банг Тао", p:21.358, k:"24 мес.", b:"10 мин", dev:"Art House Group", f:"AH_Above_Element_Residence",
@@ -247,6 +265,15 @@ const META = {
   The_Title_Fizz_Kata:{a:"karon",t:"apt",u:[[1,31,52,5.13],[2,58,64,8.5],[3,105,129,16.0]]},
   The_Kuartz_Karon:{a:"karon",t:"apt",u:[[1,32,48,5.28],[2,57,63,9.76]]},
   Laya_Radisson_Layan:{a:"bangtao",t:"apt",u:[[1,35.68,36.49,5.709]]},
+  Sansiri_Dcondo_Cove:{a:"town",t:"apt",u:[[1,23.75,34.75,2.515],[2,51.5,53,4.699]]},
+  Sansiri_The_Base_Bukit:{a:"town",t:"apt",u:[[1,26,32,2.55],[2,50,50,6.14]]},
+  Sansiri_The_Base_Rise:{a:"town",t:"apt",u:[[1,24.5,34.5,2.6]]},
+  Sansiri_Rhea_Surin:{a:"kamala",t:"apt",u:[[1,29.75,35.25,4.98],[2,47.75,120,9.19]]},
+  Sansiri_Anasiri_Paklok:{a:"north",t:"villa",u:[[4,148,186,5.63]]},
+  Sansiri_Canvaz_Palette:{a:"bangtao",t:"apt",u:[[1,42.5,43.5,6.56],[2,61.5,103.5,8.99]]},
+  Sansiri_Canvas_Cherngtalay:{a:"bangtao",t:"apt",u:[[1,39.25,49.75,6.71],[2,58.5,105,9.61]]},
+  Sansiri_The_Base_Cherngtalay:{a:"bangtao",t:"apt",u:[[1,27,34.25,null],[2,60,63,7.686]]},
+  Sansiri_Setthasiri_Kohkaew:{a:"south",t:"villa",u:[[4,204,323,16.8]]},
   Andaman_Riviera:{a:"bangtao",t:"apt",u:[[0,33.67,38.2,6.816],[2,46.9,171.88,9.646],[4,250,250,55.9]]},
   Andaman_Boutique_BLD2:{a:"bangtao",t:"apt",u:[[0,30.39,30.39,4.99],[1,41.7,46.58,6.464],[2,84.5,86.7,13.19]]},
   Andaman_Atrium:{a:"bangtao",t:"apt",u:[[0,35.74,40.9,6.576],[1,47.2,55,8.288],[2,79.43,98.06,12.217],[3,95.95,95.95,14.913]]},
@@ -268,7 +295,7 @@ const META = {
 };
 
 const RUB=2.6, USD=33, WA="66811403589";
-const AREAS={bangtao:"Банг Тао · Лагуна · Лаян",karon:"Карон · Ката",kamala:"Камала · Сурин",north:"Север · Най Янг · Таланг",south:"Юг · Раваи · Ко Кео"};
+const AREAS={bangtao:"Банг Тао · Лагуна · Лаян",karon:"Карон · Ката",kamala:"Камала · Сурин",north:"Север · Най Янг · Таланг",south:"Юг · Раваи · Ко Кео",town:"Пхукет-таун · Кату"};
 const BEDS=[["0","Студия"],["1","1 спальня"],["2","2 спальни"],["3","3 спальни"],["4","4+ спальни"]];
 const MAXS=[["5","до 5 млн ฿"],["10","до 10 млн ฿"],["20","до 20 млн ฿"],["50","до 50 млн ฿"]];
 const TYPES=[["apt","Квартира"],["villa","Вилла · таунхаус"]];
