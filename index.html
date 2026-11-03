@@ -163,7 +163,9 @@ const TIERS = [
       { n:"Palmetto Park", d:"Карон", p:4.375, k:"Готов", b:"рядом", dev:"Art House Group", f:"AH_Palmetto_Park",
         pitch:"Готовые квартиры у пляжа Карон: бассейн-инфинити на крыше, фитнес, вид на горы.", badge:["Готов", "ok"] },
       { n:"Palmetto Condominium", d:"Карон", p:4.375, k:"Готов", b:"рядом", dev:"Art House Group", f:"AH_Palmetto_Condo",
-        pitch:"Бутик-кондо в Кароне: квартира 39 м² с видом на море — от 4,38 млн ฿.", badge:["Вид на море"] }
+        pitch:"Бутик-кондо в Кароне: квартира 39 м² с видом на море — от 4,38 млн ฿.", badge:["Вид на море"] },
+      { n:"Andaman Boutique Residences II", d:"Банг Тао · Andaman City", p:4.99, k:"4 кв. 2027", b:"500 м", dev:"Andaman City", f:"Andaman_Boutique_BLD2",
+        pitch:"Самый доступный вход в Andaman City: студии и 1 спальня с террасами, у части — свой бассейн." }
     ]},
   { id:"5-7", step:"Ступень 3", title:"5 – 7 млн ฿", rub:"≈ 13–18 млн ₽",
     text:"Комплексы в нескольких минутах от моря: Ката, Карон, Банг Тао, Най Янг и Сурин.",
@@ -181,7 +183,11 @@ const TIERS = [
       { n:"Above Element Condo", d:"Банг Тао", p:5.74, k:"1 кв. 2026", b:"10 мин", dev:"Art House Group", f:"AH_Above_Element_Condo",
         pitch:"Курорт на Банг Тао: rooftop-сад, клубный дом с фитнесом и Mirage. Гарантия 7%." },
       { n:"Biancana", d:"Сурин", p:6.13, k:"март 2028", b:"200 м", dev:"AssetWise × The Title", f:"Biancana_Surin",
-        pitch:"Малоэтажный курорт на первой линии Сурина, «пхукетской Ривьеры»." }
+        pitch:"Малоэтажный курорт на первой линии Сурина, «пхукетской Ривьеры»." },
+      { n:"Atrium Andaman City", d:"Банг Тао · Andaman City", p:6.58, k:"4 кв. 2027", b:"500 м", dev:"Andaman City", f:"Andaman_Atrium",
+        pitch:"Курорт с бассейнами-лагунами в 500 м от пляжа Банг Тао. Студии, 1–3 спальни, есть с бассейном." },
+      { n:"Andaman Riviera by Radisson", d:"Банг Тао · 500 м до пляжа", p:6.82, k:"Готов", b:"500 м", dev:"Andaman City · Radisson", f:"Andaman_Riviera",
+        pitch:"Готовые апартаменты под управлением Radisson в 500 м от пляжа Банг Тао. Чаноты выданы.", badge:["Готов", "ok"] }
     ]},
   { id:"7-15", step:"Ступень 4", title:"7 – 15 млн ฿", rub:"≈ 18–39 млн ₽",
     text:"Просторные квартиры практически на пляже: первая линия Карона.",
@@ -205,13 +211,15 @@ const TIERS = [
       { n:"Botanica Majestia", d:"Ко Кео", p:28.8, k:"≈ 12 мес.", b:null, s:"рядом", dev:"Botanica", f:"Botanica_Majestia",
         pitch:"39 одноэтажных вилл на 3–5 спален с бассейном. Свободно 35, продано всего 4.", badge:["Акция"] }
     ]},
-  { id:"30-100", step:"Ступень 6 · люкс", title:"Виллы 30–100 млн ฿", rub:"≈ 78–260 млн ₽",
+  { id:"30-100", step:"Ступень 6 · люкс", title:"Виллы и резиденции 30–100 млн ฿", rub:"≈ 78–260 млн ₽",
     text:"Большие виллы 370–490 м² с бассейном на Банг Тао и виллы с видом на море у пляжа Карон.",
     p:[
       { n:"Above Element Villas", d:"Банг Тао", p:39.992, k:"12 мес.", b:"10 мин", dev:"Art House Group", f:"AH_Above_Element_Villa",
         pitch:"Виллы 370–485 м² с бассейном на Банг Тао. Стройка 12 месяцев после договора." },
       { n:"Fifth Element", d:"Банг Тао", p:43.75, k:"Готов", b:"10 мин", dev:"Art House Group", f:"AH_Fifth_Element",
         pitch:"Готовые виллы 485–491 м² с бассейном и полной мебелью — заезжай и живи.", badge:["Готов", "ok"] },
+      { n:"Andaman Boutique Residences I", d:"Банг Тао · Andaman City", p:45.68, k:"4 кв. 2027", b:"500 м", dev:"Andaman City", f:"Andaman_Boutique_BLD1",
+        pitch:"Резиденции 3 спальни 246–254 м² с личным бассейном и мебелью Visionnaire. Осталось 2.", badge:["Осталось 2"] },
       { n:"Hennessy Villas", d:"Карон · вид на море", p:72.876, k:"2 кв. 2027", b:"100 м", dev:"Art House Group", f:"AH_Hennessy_Villa",
         pitch:"Виллы ар-деко 435–470 м² с видом на море и лифтом в 100 м от пляжа Карон.", badge:["Ультралюкс"] }
     ]},
@@ -239,6 +247,10 @@ const META = {
   The_Title_Fizz_Kata:{a:"karon",t:"apt",u:[[1,31,52,5.13],[2,58,64,8.5],[3,105,129,16.0]]},
   The_Kuartz_Karon:{a:"karon",t:"apt",u:[[1,32,48,5.28],[2,57,63,9.76]]},
   Laya_Radisson_Layan:{a:"bangtao",t:"apt",u:[[1,35.68,36.49,5.709]]},
+  Andaman_Riviera:{a:"bangtao",t:"apt",u:[[0,33.67,38.2,6.816],[2,46.9,171.88,9.646],[4,250,250,55.9]]},
+  Andaman_Boutique_BLD2:{a:"bangtao",t:"apt",u:[[0,30.39,30.39,4.99],[1,41.7,46.58,6.464],[2,84.5,86.7,13.19]]},
+  Andaman_Atrium:{a:"bangtao",t:"apt",u:[[0,35.74,40.9,6.576],[1,47.2,55,8.288],[2,79.43,98.06,12.217],[3,95.95,95.95,14.913]]},
+  Andaman_Boutique_BLD1:{a:"bangtao",t:"apt",u:[[3,245.72,253.77,45.679]]},
   The_Balcony_Nai_Yang:{a:"north",t:"apt",u:[[1,33,50,5.742],[2,50,63,8.786]]},
   AH_Above_Element_Condo:{a:"bangtao",t:"apt",u:[[1,38,47,5.74],[3,138,138,19.712]]},
   Biancana_Surin:{a:"kamala",t:"apt",u:[[1,31,62,6.131],[2,62,100,12.494],[3,131,131,27.609]]},
