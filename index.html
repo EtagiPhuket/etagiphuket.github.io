@@ -112,6 +112,8 @@ select{font:inherit;font-weight:600;border:1px solid var(--ln);background:var(--
     <div class="gb"><small>Для инвестора · аренда</small><b>Сколько приносит квартира на Пхукете</b><span>Сколько сдаётся на год и посуточно, сколько остаётся на руки — по районам. Сами или под ключ через нашу УК.</span></div></a>
   <a class="guide" href="p/Rubl.html" id="doh" style="margin-top:12px"><div class="gc" style="background-image:url('img/Dohod-01.jpg')"></div>
     <div class="gb"><small>Для инвестора · деньги</small><b>Что происходит с рублями</b><span>Рубль с 2000 года, вклады против инфляции, квартиры в Москве в долларах. И пример: 10 млн ₽ на 10 лет.</span></div></a>
+  <a class="guide" href="p/Lease.html" id="lsh" style="margin-top:12px"><div class="gc" style="background-image:url('img/Botanica_Majestia-01.jpg')"></div>
+    <div class="gb"><small>Для покупателя виллы</small><b>Лизхолд без страха</b><span>Что защищает закон, чем аренда у застройщика лучше аренды у частника и что проверить в договоре.</span></div></a>
   <main id="res"></main>
   <section class="contact" id="contact">
     <img src="img/agent.jpg" alt="Александр Косарев">
@@ -353,7 +355,7 @@ function render(){
   R.innerHTML=`<div class="rhead"><h2>Найдено: ${r.length} ${word(r.length)}<small>${esc(summary())}${fr.length?" · от "+money(Math.min(...fr)):""}</small></h2><select id="sort" aria-label="Сортировка">${SORTS.map(s=>`<option value="${s[0]}" ${st.sort==s[0]?"selected":""}>${s[1]}</option>`).join("")}</select></div>`+
   (r.length?`<div class="grid">${r.map(card).join("")}</div>`:`<div class="empty"><b>По этим условиям в каталоге ничего нет</b><p>Напишите мне — подберу вне каталога или подскажу, что изменить.</p><a class="btn m" style="display:inline-flex" href="${waLink()}" target="_blank" rel="noopener">Написать в WhatsApp</a></div>`);
   const so=document.getElementById("sort");so&&so.addEventListener("change",e=>{st.sort=e.target.value;sync()})}
- document.getElementById("gid").hidden=!!anyF();document.getElementById("inv").hidden=!!anyF();document.getElementById("doh").hidden=!!anyF();chipsAll();dock();
+ document.getElementById("gid").hidden=!!anyF();document.getElementById("inv").hidden=!!anyF();document.getElementById("doh").hidden=!!anyF();document.getElementById("lsh").hidden=!!anyF();chipsAll();dock();
 }
 const word=n=>n%10==1&&n%100!=11?"проект":[2,3,4].includes(n%10)&&![12,13,14].includes(n%100)?"проекта":"проектов";
 function chipRow(id,opts,key,multi){const el=document.getElementById(id);if(!el)return;el.innerHTML=opts.map(o=>{const on=multi?st[key].includes(o[0]):st[key]==o[0];return `<button class="chip" type="button" data-k="${key}" data-v="${o[0]}" data-m="${multi?1:0}" aria-pressed="${on}">${o[1]}</button>`}).join("")}
