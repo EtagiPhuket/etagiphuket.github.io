@@ -40,7 +40,7 @@ h1{font-weight:800;font-size:clamp(30px,6vw,50px);line-height:1.04;margin:0;lett
 /* sticky bar */
 .sbar{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--ln);padding-top:env(safe-area-inset-top)}
 .sbar .w{display:flex;gap:8px;align-items:center;padding-block:9px;overflow-x:auto;scrollbar-width:none}.sbar .w::-webkit-scrollbar{display:none}
-.sbar .chip{padding:8px 12px;font-size:14px;border-radius:99px}
+.qw{padding-bottom:0!important}#q{width:100%;font:inherit;font-size:16px;padding:10px 14px 10px 38px;border:1px solid var(--ln);border-radius:12px;background:var(--bg) url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2718%27 height=%2718%27 fill=%27none%27 stroke=%27%23888%27 stroke-width=%272%27%3E%3Ccircle cx=%278%27 cy=%278%27 r=%276%27/%3E%3Cpath d=%27m13 13 4 4%27/%3E%3C/svg%3E") no-repeat 12px center;color:var(--fg)}.sbar .chip{padding:8px 12px;font-size:14px;border-radius:99px}
 .sbar .fb{flex:none;border:1px solid var(--fg);background:var(--fg);color:var(--bg);border-radius:99px;padding:8px 13px;font-weight:700;font-size:14px}
 /* guide */
 .guide{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);background:var(--s);border:1px solid var(--ln);border-radius:16px;overflow:hidden;text-decoration:none;margin-top:18px}
@@ -103,7 +103,7 @@ select{font:inherit;font-weight:600;border:1px solid var(--ln);background:var(--
   </div>
 </header>
 
-<div class="sbar" id="sbar"><div class="w" id="sb"></div></div>
+<div class="sbar" id="sbar"><div class="w qw"><input id="q" type="search" inputmode="search" autocomplete="off" placeholder="Найти проект: Layan, Озон, Банг Тао…" aria-label="Поиск проекта"></div><div class="w" id="sb"></div></div>
 
 <div class="w">
   <a class="guide" href="p/Thailand_Guide.html" id="gid"><div class="gc" style="background-image:url('img/Thailand_Guide-01.jpg')"></div>
@@ -322,7 +322,14 @@ const STS=[["ready","Готовые"],["build","Строятся"]];
 const SORTS=[["price","Сначала дешёвые"],["price-d","Сначала дорогие"],["ready","Сначала готовые"]];
 const ALL=TIERS.flatMap(t=>t.p.map(p=>Object.assign(p,{tier:t.id},META[p.f]||{u:[]})));
 ALL.forEach((p,i)=>p.n0=i+1);
-const st={beds:[],max:"",area:[],type:[],st:[],sort:"price",cur:"thb"};
+const st={beds:[],max:"",area:[],type:[],st:[],sort:"price",cur:"thb",q:""};
+const ALI={"грин":"green","парк":"park","тайтл":"title","тайтле":"title","куб":"cube","кьюб":"cube","амейз":"amaze","сансири":"sansiri","сансири":"sansiri","ботаника":"botanica","андаман":"andaman","озон":"ozone","олив":"olive","балкони":"balcony","бьянкана":"biancana","бианкана":"biancana","кварц":"kuartz","куартз":"kuartz","физ":"fizz","физз":"fizz","сьерра":"sierra","сиерра":"sierra","вивана":"vivana","верде":"verde","лайя":"laya","лая":"laya","лайа":"laya","некст":"next","поинт":"point","гарденс":"gardens","эдем":"eden","иден":"eden","дженс":"gens","генс":"gens","вердант":"verdant","скайпорт":"skyport","мажестия":"majestia","маджестия":"majestia","каса":"casa","монте":"monte","гранд":"grand","си":"sea","оушен":"ocean","тропика":"tropika","хеннесси":"hennessy","хенесси":"hennessy","палметто":"palmetto","прауд":"proud","эбов":"above","абов":"above","обов":"above","элемент":"element","ривьера":"riviera","атриум":"atrium","бутик":"boutique","анасири":"anasiri","сеттасири":"setthasiri","рея":"rhea","дикондо":"dcondo","кондо":"condo","канвас":"canvas","канваз":"canvaz","бейс":"base","фифт":"fifth","радиссон":"radisson","виллакарт":"villacarte","ассетвайз":"assetwise","арт":"art","хаус":"house","лагуна":"laguna","най":"nai","янг":"yang"};
+const TR={а:"a",б:"b",в:"v",г:"g",д:"d",е:"e",ё:"e",ж:"zh",з:"z",и:"i",й:"y",к:"k",л:"l",м:"m",н:"n",о:"o",п:"p",р:"r",с:"s",т:"t",у:"u",ф:"f",х:"h",ц:"ts",ч:"ch",ш:"sh",щ:"sh",ъ:"",ы:"y",ь:"",э:"e",ю:"yu",я:"ya"};
+const nrm=s=>(s||"").toLowerCase().replace(/ё/g,"е").replace(/[_·,.()«»"'\-–—/]/g," ").replace(/\s+/g," ").trim();
+const trl=s=>[...s].map(c=>TR[c]??c).join("");
+function hay(p){if(!p._h){const h=nrm([p.n,p.d,p.dev,p.f,p.k,p.t=="villa"?"вилла виллы дом дома таунхаус villa house":"квартира квартиры апартаменты кондо condo",isReady(p)?"готовый готовые сдан":"строится новостройка"].join(" "));p._h=h+" "+h.replace(/ /g,"")}return p._h}
+function qOK(p){if(!st.q)return true;const H=hay(p);return nrm(st.q).split(" ").filter(Boolean).every(w=>[w,ALI[w],trl(w),w.length>=5?w.slice(0,-1):""].some(c=>c&&H.includes(c)))}
+
 let fav=[];try{fav=JSON.parse(localStorage.getItem("fav")||"[]")}catch(e){}
 try{st.cur=localStorage.getItem("cur")||"thb"}catch(e){}
 // url
@@ -334,9 +341,9 @@ function money2(m){return st.cur=="thb"?"≈ "+money(m,"rub"):"≈ "+money(m,"th
 const bedName=b=>b==0?"Студия":b==1?"1 спальня":(b>=5?b+" спален":b+" спальни");
 const area=u=>u[1]==null?"":(u[1]==u[2]?nf(u[1],1):nf(u[1],1)+"–"+nf(u[2],1))+" м²";
 const isReady=p=>p.k=="Готов";
-const anyF=()=>st.beds.length||st.max||st.area.length||st.type.length||st.st.length;
+const anyF=()=>st.q||st.beds.length||st.max||st.area.length||st.type.length||st.st.length;
 function matchUnits(p){let u=p.u;if(st.beds.length)u=u.filter(x=>st.beds.some(b=>b=="4"?x[0]>=4:x[0]==+b));if(st.max)u=u.filter(x=>x[3]!=null&&x[3]<=+st.max);return u}
-function filtered(){let r=ALL.filter(p=>{if(st.area.length&&!st.area.includes(p.a))return false;if(st.type.length&&!st.type.includes(p.t))return false;if(st.st.length){const r=isReady(p);if(!(st.st.includes("ready")&&r||st.st.includes("build")&&!r))return false}if((st.beds.length||st.max)&&!matchUnits(p).length)return false;return true});
+function filtered(){let r=ALL.filter(p=>{if(!qOK(p))return false;if(st.area.length&&!st.area.includes(p.a))return false;if(st.type.length&&!st.type.includes(p.t))return false;if(st.st.length){const r=isReady(p);if(!(st.st.includes("ready")&&r||st.st.includes("build")&&!r))return false}if((st.beds.length||st.max)&&!matchUnits(p).length)return false;return true});
  const pr=p=>{const m=matchUnits(p).map(x=>x[3]).filter(x=>x!=null);return m.length?Math.min(...m):p.p};
  r.sort((a,b)=>st.sort=="price-d"?pr(b)-pr(a):st.sort=="ready"?(isReady(b)-isReady(a))||pr(a)-pr(b):pr(a)-pr(b));return r}
 function card(p){const hits=(st.beds.length||st.max)?matchUnits(p):[];const show=(hits.length?hits:p.u);const fv=fav.includes(p.f);
@@ -347,7 +354,7 @@ function card(p){const hits=(st.beds.length||st.max)?matchUnits(p):[];const show
  <div class="units">${show.slice(0,4).map(u=>`<div class="un ${hits.length?"hit":""}"><span>${bedName(u[0])}${area(u)?" · "+area(u):""}</span><b>${u[3]==null?"по запросу":"от "+money(u[3])}</b></div>`).join("")}</div>
  <div class="facts"><div><small>Вход от</small><b>${money(isFinite(from)?from:p.p)}</b><small style="text-transform:none;letter-spacing:0">${money2(isFinite(from)?from:p.p)}</small></div><div><small>${isReady(p)?"Статус":"Сдача"}</small><b>${esc(p.k)}</b></div><div class="bh"><small>${p.b?"До пляжа":"Школа"}</small><b>${esc(p.b||p.s||"500 м")}</b></div></div>
  <div class="go"><span>${p.t=="villa"?"Вилла / таунхаус":"Квартиры"}</span><a href="p/${p.f}.html">Подробнее →</a></div></div></article>`}
-function summary(){const s=[];if(st.beds.length)s.push(st.beds.map(b=>BEDS.find(x=>x[0]==b)[1]).join(", "));if(st.max)s.push("до "+st.max+" млн ฿");if(st.area.length)s.push(st.area.map(a=>AREAS[a]).join(", "));if(st.type.length)s.push(st.type.map(t=>TYPES.find(x=>x[0]==t)[1]).join(", "));if(st.st.length)s.push(st.st.map(t=>STS.find(x=>x[0]==t)[1]).join(", "));return s.join(" · ")}
+function summary(){const s=[];if(st.q)s.push("«"+st.q+"»");if(st.beds.length)s.push(st.beds.map(b=>BEDS.find(x=>x[0]==b)[1]).join(", "));if(st.max)s.push("до "+st.max+" млн ฿");if(st.area.length)s.push(st.area.map(a=>AREAS[a]).join(", "));if(st.type.length)s.push(st.type.map(t=>TYPES.find(x=>x[0]==t)[1]).join(", "));if(st.st.length)s.push(st.st.map(t=>STS.find(x=>x[0]==t)[1]).join(", "));return s.join(" · ")}
 function render(){
  const R=document.getElementById("res");
  if(!anyF()){const tiers=TIERS.map(t=>`<section class="tier" id="${t.id}"><div class="th"><small>${esc(t.step)}</small><h2>${esc(t.title)}<span>${esc(t.rub)}</span></h2><p>${esc(t.text)}</p></div><div class="grid">${t.p.map(card).join("")}</div></section>`).join("");R.innerHTML=tiers}
@@ -373,7 +380,7 @@ function sync(scroll){const q=new URLSearchParams();["beds","area","type","st"].
 document.addEventListener("click",e=>{const c=e.target.closest(".chip[data-k]");if(c){const k=c.dataset.k,v=c.dataset.v;if(c.dataset.m=="1"){st[k]=st[k].includes(v)?st[k].filter(x=>x!=v):[...st[k],v]}else{st[k]=st[k]==v&&k!="sort"?"":v}const inSheet=!!c.closest(".sheet"),inFinder=!!c.closest(".finder");if(inSheet||inFinder){chipsAll()}else sync(true);if(!inSheet&&!inFinder)return;return}
  const f=e.target.closest("[data-fav]");if(f){e.preventDefault();const id=f.dataset.fav;fav=fav.includes(id)?fav.filter(x=>x!=id):[...fav,id];try{localStorage.setItem("fav",JSON.stringify(fav))}catch(_){}f.setAttribute("aria-pressed",fav.includes(id));f.textContent=fav.includes(id)?"♥":"♡";dock();return}
  if(e.target.closest("[data-open]")||e.target.closest("#open-f")){open(true);return}
- if(e.target.closest("[data-clear]")||e.target.closest("#reset")){Object.assign(st,{beds:[],max:"",area:[],type:[],st:[],sort:"price"});if(e.target.closest("#reset"))chipsAll();else sync();return}
+ if(e.target.closest("[data-clear]")||e.target.closest("#reset")){Object.assign(st,{beds:[],max:"",area:[],type:[],st:[],sort:"price",q:""});{const q=document.getElementById("q");if(q)q.value=""}if(e.target.closest("#reset"))chipsAll();else sync();return}
  const cu=e.target.closest("[data-cur]");if(cu){st.cur=cu.dataset.cur;try{localStorage.setItem("cur",st.cur)}catch(_){}sync();return}
 });
 function open(on){document.getElementById("sheet").hidden=!on;document.getElementById("ov").hidden=!on;document.body.style.overflow=on?"hidden":"";if(on)chipsAll()}
@@ -385,5 +392,6 @@ document.addEventListener("keydown",e=>{if(e.key=="Escape"&&!document.getElement
 const devs=new Set(ALL.map(p=>p.dev.split(" · ")[0].split(" × ")[0])).size;
 document.getElementById("stats").innerHTML=`<div><b>${ALL.length}</b><small>проектов</small></div><div><b>${devs}</b><small>застройщиков</small></div><div><b>${ALL.filter(isReady).length}</b><small>готовых к заселению</small></div><div><b>от 2,39 млн ฿</b><small>цена входа</small></div>`;
 render();
+{const q=document.getElementById("q");let tm;q&&q.addEventListener("input",()=>{clearTimeout(tm);tm=setTimeout(()=>{st.q=q.value.trim();render();},150)});q&&q.addEventListener("keydown",e=>{if(e.key=="Enter"){q.blur();document.getElementById("res").scrollIntoView({behavior:"smooth"})}});}
 </script>
 </body></html>
