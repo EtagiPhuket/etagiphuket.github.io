@@ -1,2 +1,0 @@
-User-agent: *
-Disallow: /agent-kit-7f3q/
