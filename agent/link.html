@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex"><title>Моя ссылка на каталог · «Этажи» Пхукет</title>
+<style>
+:root{--bg:#F6F5F3;--card:#fff;--fg:#16171A;--mut:#6B6E76;--line:#E4E2DE;--ac:#E3262B}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.45 Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.w{max-width:560px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-left)) 48px max(16px,env(safe-area-inset-right))}
+.eb{display:inline-block;background:var(--ac);color:#fff;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:99px}
+h1{font-size:28px;line-height:1.15;margin:14px 0 8px;text-wrap:balance}p{margin:0 0 16px;color:var(--mut)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;display:grid;gap:14px}
+label{display:grid;gap:6px;font-weight:600;font-size:14px}label small{font-weight:400;color:var(--mut)}
+input{font:inherit;padding:13px 14px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--fg);width:100%}
+input:focus{outline:2px solid var(--ac);border-color:transparent}
+.out{margin-top:16px;display:none;gap:10px}.out.on{display:grid}
+.url{word-break:break-all;background:#fff;border:1px dashed var(--ac);border-radius:12px;padding:12px;font-size:14px;user-select:all}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.btn{flex:1;min-width:140px;text-align:center;font:inherit;font-weight:700;border:0;border-radius:12px;padding:14px;background:var(--ac);color:#fff;text-decoration:none;cursor:pointer}
+.btn.s{background:#16171A}.err{color:var(--ac);font-size:14px;display:none}.ok{color:#1b7f3b;font-size:14px;display:none}
+ol{padding-left:20px;color:var(--mut);margin:18px 0 0}ol li{margin-bottom:6px}
+</style></head><body><div class="w">
+<span class="eb">«Этажи» · Пхукет</span>
+<h1>Ваша личная ссылка на каталог новостроек Пхукета</h1>
+<p>Заполните контакты, и сайт будет показывать клиенту только вас. Подборки и вопросы клиента придут вам.</p>
+<form class="card" id="f" novalidate>
+<label>Имя и фамилия<input id="n" placeholder="Например, Ирина Смирнова" autocomplete="name"></label>
+<label>WhatsApp <small>номер с кодом страны, например +7 913 123-45-67</small><input id="wa" inputmode="tel" placeholder="+7 ..."></label>
+<label>Telegram <small>ник без @ или ссылка t.me/…</small><input id="tg" placeholder="username"></label>
+<label>MAX <small>ссылка на профиль: Профиль → «Поделиться профилем»</small><input id="mx" inputmode="url" placeholder="https://max.ru/u/..."></label>
+<label>Телефон для звонка<input id="ph" inputmode="tel" placeholder="+7 ..."></label>
+<div class="err" id="er">Укажите имя и хотя бы один способ связи.</div>
+<button class="btn" type="submit">Сделать ссылку</button>
+</form>
+<div class="out" id="out">
+<div class="url" id="url"></div>
+<div class="row"><button class="btn" type="button" id="cp">Скопировать</button><a class="btn s" id="go" href="#" target="_blank" rel="noopener">Открыть сайт</a></div>
+<div class="ok" id="ok">Ссылка скопирована</div>
+<p style="margin:4px 0 0">Если указали несколько мессенджеров, кнопки на сайте ведут в первый по порядку: WhatsApp → Telegram → MAX.</p>
+</div>
+<ol><li>Отправляйте эту ссылку клиентам и ставьте её в соцсети.</li><li>Клиент отмечает объекты сердечком и жмёт «Отправить подборку» — подборка с ценами и ссылками приходит вам.</li><li>Передаёте клиента в офис «Этажи» на Пхукете — дальше сделку ведём мы.</li></ol>
+</div>
+<script>
+var $=function(i){return document.getElementById(i)};
+try{var s=JSON.parse(localStorage.getItem("etagi_link")||"{}");["n","wa","tg","mx","ph"].forEach(function(k){if(s[k])$(k).value=s[k]})}catch(e){}
+$("f").addEventListener("submit",function(e){e.preventDefault();var d={},q=[];
+["n","wa","tg","mx","ph"].forEach(function(k){var v=$(k).value.trim();if(k=="wa"||k=="ph")v=v.replace(/[^\d+]/g,"");if(k=="tg")v=v.replace(/^@/,"").replace(/^https?:\/\/t\.me\//,"");if(v){d[k]=v;q.push(k+"="+encodeURIComponent(v))}});
+var ok=d.n&&(d.wa||d.tg||d.mx||d.ph);$("er").style.display=ok?"none":"block";if(!ok)return;
+try{localStorage.setItem("etagi_link",JSON.stringify(d))}catch(e){}
+var u=location.href.replace(/link\.html.*$/,"")+"?"+q.join("&");$("url").textContent=u;$("go").href=u;$("out").classList.add("on");$("ok").style.display="none";$("out").scrollIntoView({behavior:"smooth"})});
+$("cp").addEventListener("click",function(){var u=$("url").textContent;function done(){$("ok").style.display="block"}
+try{navigator.clipboard.writeText(u).then(done,function(){sel()})}catch(e){sel()}
+function sel(){var r=document.createRange();r.selectNodeContents($("url"));var s=getSelection();s.removeAllRanges();s.addRange(r)}});
+</script></body></html>
